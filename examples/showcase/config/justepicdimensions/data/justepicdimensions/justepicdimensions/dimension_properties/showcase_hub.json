@@ -1,0 +1,90 @@
+{
+  "format_version": 1,
+  "display_name": "Showcase Hub",
+  "provider": {
+    "type": "justepicdimensions:surface"
+  },
+  "lifecycle": {
+    "load_on_start": true,
+    "keep_loaded": true
+  },
+  "state": {
+    "initial": {
+      "day_time": 6000,
+      "default_game_mode": "creative",
+      "difficulty": "peaceful",
+      "hardcore": false,
+      "gamerules": {
+        "spawnChunkRadius": 0,
+        "doMobSpawning": false,
+        "keepInventory": true,
+        "doWeatherCycle": false,
+        "doDaylightCycle": false
+      },
+      "weather": {
+        "raining": false,
+        "thundering": false,
+        "clear_time": 2400000
+      },
+      "day_time_per_tick": 0,
+      "border": {
+        "size": 512,
+        "warning_blocks": 12
+      }
+    }
+  },
+  "spawn": {
+    "mode": "fixed",
+    "x": 0,
+    "y": 65,
+    "z": 0,
+    "fallback_block": false,
+    "reset_velocity": true,
+    "reset_fall_distance": true
+  },
+  "player": {
+    "inventory_group": "__default",
+    "force_game_mode": true
+  },
+  "mobs": {
+    "hostile": false,
+    "peaceful": false
+  },
+  "border": {
+    "center_on_spawn": true,
+    "centering": "on_load"
+  },
+  "spawn_chunks": {
+    "enabled": true,
+    "radius": 1,
+    "activity": "continuous"
+  },
+  "spawn_structure": {
+    "asset": "justepicdimensions:showcase_hub.nbt",
+    "centered": true,
+    "offset": [
+      0,
+      -1,
+      0
+    ],
+    "rotation": "none",
+    "mirror": "none",
+    "load_around": 24
+  },
+  "render": {
+    "sky": {
+      "color": "#78BFFF",
+      "biome_blend": 1
+    },
+    "clouds": {
+      "height": 176
+    },
+    "music": {
+      "mode": "preset",
+      "preset": "creative"
+    }
+  },
+  "monitoring": {
+    "enabled": true
+  }
+}

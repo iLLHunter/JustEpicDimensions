@@ -1,0 +1,78 @@
+{
+  "format_version": 1,
+  "display_name": "Long-Day Wilderness",
+  "provider": {
+    "type": "justepicdimensions:surface"
+  },
+  "lifecycle": {
+    "load_on_start": false,
+    "keep_loaded": false,
+    "automatic_unload": true,
+    "idle_seconds": 90
+  },
+  "state": {
+    "initial": {
+      "day_time": 6000,
+      "default_game_mode": "survival",
+      "difficulty": "normal",
+      "hardcore": false,
+      "gamerules": {
+        "spawnChunkRadius": 0,
+        "doMobSpawning": true,
+        "keepInventory": true,
+        "doWeatherCycle": true
+      },
+      "weather": {
+        "raining": false,
+        "thundering": false,
+        "clear_time": 2400000
+      },
+      "day_time_per_tick": 1
+    }
+  },
+  "spawn": {
+    "mode": "surface",
+    "min_y": 48,
+    "max_y": 220,
+    "fallback_block": true,
+    "reset_velocity": true,
+    "reset_fall_distance": true
+  },
+  "player": {
+    "inventory_group": "__default",
+    "force_game_mode": false
+  },
+  "generation": {
+    "seed": "JED showcase long day wilderness",
+    "structures": true
+  },
+  "time": {
+    "day_length": 36000,
+    "night_length": 6000,
+    "celestial": "cycle"
+  },
+  "mobs": {
+    "hostile": false,
+    "peaceful": true,
+    "policy": "justepicdimensions:showcase_wildlife"
+  },
+  "weather": {
+    "natural_lightning": false,
+    "preserve_on_sleep": true
+  },
+  "render": {
+    "music": {
+      "mode": "native"
+    }
+  },
+  "spawn_structure": {
+    "asset": "justepicdimensions:showcase_wildlife_observatory.nbt",
+    "centered": true,
+    "offset": [
+      0,
+      -1,
+      0
+    ],
+    "load_around": 8
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:overworld",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "minecraft:overworld",
+    "biome_source": {
+      "type": "justepicdimensions:weighted_regions",
+      "region_size": 128,
+      "shape": "irregular",
+      "entries": [
+        {
+          "biome": "minecraft:flower_forest",
+          "weight": 3
+        },
+        {
+          "biome": "minecraft:meadow",
+          "weight": 2
+        },
+        {
+          "biome": "minecraft:cherry_grove",
+          "weight": 1
+        }
+      ]
+    }
+  }
+}

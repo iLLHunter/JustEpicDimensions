@@ -1,0 +1,153 @@
+{
+  "title": {
+    "raw": "JED Showcase Tour"
+  },
+  "author": "Just Epic Dimensions",
+  "pages": [
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Welcome to JED!\\n\\n\"}, {\"text\": \"\", \"extra\": [{\"text\": \"Explore eleven worlds with their own landscapes, rules and surprises.\"}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"Read a destination's description, look for the sights, then try its other features.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Taking the tour\\n\\n\"}, {\"text\": \"\", \"extra\": [{\"text\": \"Blue links fill in a command in chat. Check it, then press Enter. Links do not run commands by themselves.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Taking the tour\\n\\n\"}, {\"text\": \"\", \"extra\": [{\"text\": \"Keep your tour book with you. It travels between showcase worlds with you, even when arena equipment loads.\"}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"If a command is refused, ask a server operator to help.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Taking the tour\\n\\n\"}, {\"text\": \"\", \"extra\": [{\"text\": \"Prepare hub return\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj justepicdimensions:showcase_hub spawn\"}}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"Leave for Overworld\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj minecraft:overworld spawn\"}}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Showcase Hub\\n\\n\"}, {\"text\": \"\", \"extra\": [{\"text\": \"This bright hub is your base for the tour. Take supplies before exploring.\"}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"Prepare travel\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj justepicdimensions:showcase_hub spawn\"}}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- Colored destination signs.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- The book, supplies and furnace.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Showcase Hub\\n\\n\"}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- A glass roof and blue sky.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- Fly in Creative here; your previous game mode returns outside.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Leave iron smelting, take a trip, then return: it keeps cooking.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Showcase Hub\\n\\n\"}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- A separate 512-block border surrounds a never-ending noon.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Showcase Hub\\n\\n\"}, {\"text\": \"Try it\\n\", \"extra\": [{\"text\": \"For live performance, open World tools, then Dimension monitoring. Open dashboard shows the browser view.\\n\", \"extra\": [{\"text\": \"Prepare monitoring\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/jed gui\"}}]}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Prismatic Meadow\\n\\n\"}, {\"text\": \"\", \"extra\": [{\"text\": \"Explore a pastel countryside of flowers, open meadows and cherry trees.\"}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"Prepare travel\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj justepicdimensions:showcase_meadow spawn\"}}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- Mint grass, teal leaves and lavender water.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Prismatic Meadow\\n\\n\"}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- Pink clouds and a large, warm-colored sun.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Birch pavilions; pink roofs in cherry groves.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- The afternoon repeats instead of reaching night.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Prismatic Meadow\\n\\n\"}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- Biomes and pavilion locations use this world's own seed.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Fly above Y=224 to return to the hub, with passengers.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"Try it\\n\", \"extra\": [{\"text\": \"While in this meadow, try its high-altitude return.\\n\", \"extra\": [{\"text\": \"Prepare sky return\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tp @s ~ 230 ~\"}}]}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Crimson Nightmare\\n\\n\"}, {\"text\": \"\", \"extra\": [{\"text\": \"A familiar jungle takes on an eerie new palette beneath a huge red sun.\"}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"Prepare travel\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj justepicdimensions:showcase_nightmare spawn\"}}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- Red grass, black leaves and violet water.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Crimson Nightmare\\n\\n\"}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- A purple sky and huge red sun.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Green clouds and thick green fog.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- Afternoon stays still; no moon or stars appear.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Listen for Nether music in a jungle.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Crimson Nightmare\\n\\n\"}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- Despite the eerie scene, no mobs spawn naturally.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Long-Day Wilderness\\n\\n\"}, {\"text\": \"\", \"extra\": [{\"text\": \"Roam an ordinary-looking wilderness where daylight lasts much longer.\"}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"Prepare travel\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj justepicdimensions:showcase_long_day spawn\"}}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- A wooden observation deck.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Long-Day Wilderness\\n\\n\"}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- Sheep, rabbits and farm animals.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Slow-moving daylight.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- Day lasts 30 minutes; night lasts 5. Game speed stays normal.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Sheep are favored. Spawn limits have been increased.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Long-Day Wilderness\\n\\n\"}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- Rabbits may appear; new hostile mobs are disabled. Normal spawn conditions still apply.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Separate terrain and weather; no natural lightning.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Frost Garden\\n\\n\"}, {\"text\": \"\", \"extra\": [{\"text\": \"A lodge shelters you from a cold, snowy night. Take food and armor outside.\"}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"Prepare travel\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj justepicdimensions:showcase_frost spawn\"}}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- A roofed lodge and an open-air deck.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Snow falling onto the exposed ground.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Frost Garden\\n\\n\"}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- Compare health and movement outside, under the roof, and in armor.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- Survival mode: exposed snowfall slows you and hurts every 2 seconds.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Frost Garden\\n\\n\"}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- Boots reduce cold damage by 25%; leggings reduce it by 50%. Only the stronger bonus applies.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- A chestplate blocks this cold and new Slowness. Old Slowness wears off.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Frost Garden\\n\\n\"}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- Shelter stops new exposure. Sleeping ends neither the snow nor this paused night.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Snow builds up; exposed water does not form new ice.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Lantern Cavern\\n\\n\"}, {\"text\": \"\", \"extra\": [{\"text\": \"Explore a closed cavern with glowing gardens below and hanging ruins above.\"}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"Prepare travel\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj justepicdimensions:showcase_cavern spawn\"}}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- Mossy slopes, planted gardens and pools.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Lantern Cavern\\n\\n\"}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- Glowing berry vines and hanging lantern ruins.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Bright gardens and shadowed stone.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- The bed saves your spawn without skipping night.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Lantern Cavern\\n\\n\"}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- Lush caves below Y=80; dripstone above. No sunlight reaches this world.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Below Y=-4, return to the hub at 8:1 coordinate scaling. You may land away from its platform.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Lantern Cavern\\n\\n\"}, {\"text\": \"Try it\\n\", \"extra\": [{\"text\": \"Try the return by moving below this cavern's floor.\\n\", \"extra\": [{\"text\": \"Prepare void return\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj justepicdimensions:showcase_cavern 20 -12 20\"}}]}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Loadout Arena\\n\\n\"}, {\"text\": \"\", \"extra\": [{\"text\": \"Carry an Arena Key from the hub into a nighttime combat world with its own equipment.\"}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"Prepare travel\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj justepicdimensions:showcase_arena spawn\"}}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Loadout Arena\\n\\n\"}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- A raised sandstone shelter. Pressure plate exit, button enter. Stairs to arena floor.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Carry a hub tripwire-hook key to enter. It is not used up.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Starter weapons, armor, food and tools.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Loadout Arena\\n\\n\"}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- Zombies, skeletons and spiders outside.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- Gear, XP, health, food and effects are saved apart from your previous world.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Loadout Arena\\n\\n\"}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- Change gear and stats; leave, then return to compare. Your previous state waits outside.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Start at level 5 with two golden hearts. Red health is capped at ten hearts.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Loadout Arena\\n\\n\"}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- Natural monster limits: 18 loaded, or 8 within 48 blocks of you.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Create a private arena with its own saved gear and stats.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Loadout Arena\\n\\n\"}, {\"text\": \"Try it\\n\", \"extra\": [{\"text\": \"Create your own copy; chat returns its world ID.\\n\", \"extra\": [{\"text\": \"Prepare private arena\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj instance create justepicdimensions:showcase_arena\"}}]}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"Paste that ID after this prepared command.\\n\", \"extra\": [{\"text\": \"Prepare instance entry\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj instance enter \"}}]}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Loadout Arena\\n\\n\"}, {\"text\": \"Try it\\n\", \"extra\": [{\"text\": \"Leave the private run by its return route.\\n\", \"extra\": [{\"text\": \"Prepare instance exit\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj instance exit\"}}]}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Temporary Quarry\\n\\n\"}, {\"text\": \"\", \"extra\": [{\"text\": \"Dig into a flat resource world, then carry your finds home before it resets.\"}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"Prepare travel\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj justepicdimensions:showcase_quarry spawn\"}}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- Layers of stone and resources.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Mine a hole; revisit after a reset.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Temporary Quarry\\n\\n\"}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- Keep your ordinary inventory. Carry mined resources home.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- After everyone leaves, 30 idle seconds trigger a reset. Active work can delay it.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Temporary Quarry\\n\\n\"}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- Shutdown also clears a loaded quarry. Builds, chests and loose items are disposable.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Pillarless End\\n\\n\"}, {\"text\": \"\", \"extra\": [{\"text\": \"Visit a separate End where the dragon fights above an island without obsidian towers.\"}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"Prepare travel\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj justepicdimensions:showcase_end spawn\"}}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- A dragon fight without tall pillars.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Pillarless End\\n\\n\"}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- Purple haze around the island.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Watch from above in Creative flight.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- A separate seed and dragon fight leave your normal End untouched.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Pillarless End\\n\\n\"}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- After victory, place four End crystals around the exit fountain. Summon the dragon again: pillars stay absent.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- The exit portal follows normal End-return rules. Use the hub link for a direct return.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Team Loadout Arena\\n\\n\"}, {\"text\": \"\", \"extra\": [{\"text\": \"Share a private combat world with your Minecraft team. Each player keeps separate gear.\"}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"Prepare travel\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj justepicdimensions:showcase_team_arena spawn\"}}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Team Loadout Arena\\n\\n\"}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- A raised sandstone shelter. Pressure plate exit, button enter. Stairs to arena floor.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Arena Key-gated entry. Custom starter gear.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Place a marker; compare another team's private arena.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Team Loadout Arena\\n\\n\"}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- One private run per Minecraft team. This example uses neither FTB nor Xaero teams.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Each player's gear and stats stay separate in each private run.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Team Loadout Arena\\n\\n\"}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- Leave the owning team and lose entry; occupants are moved to safety.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"Try it\\n\", \"extra\": [{\"text\": \"An operator can create this team.\\n\", \"extra\": [{\"text\": \"Prepare example team\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/team add showcase_blue\"}}]}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Team Loadout Arena\\n\\n\"}, {\"text\": \"Try it\\n\", \"extra\": [{\"text\": \"Join the example team yourself.\\n\", \"extra\": [{\"text\": \"Prepare team join\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/team join showcase_blue @s\"}}]}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"Create its private arena; chat returns a world ID.\\n\", \"extra\": [{\"text\": \"Prepare team arena\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj instance create justepicdimensions:showcase_team_arena\"}}]}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Team Loadout Arena\\n\\n\"}, {\"text\": \"Try it\\n\", \"extra\": [{\"text\": \"Paste that ID after this prepared command.\\n\", \"extra\": [{\"text\": \"Prepare instance entry\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj instance enter \"}}]}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"Leave the private run by its return route.\\n\", \"extra\": [{\"text\": \"Prepare instance exit\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj instance exit\"}}]}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Scheduled Quarry\\n\\n\"}, {\"text\": \"\", \"extra\": [{\"text\": \"This mine refreshes on a timer rather than resetting whenever you leave.\"}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"Prepare travel\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/tpj justepicdimensions:showcase_scheduled_quarry spawn\"}}, {\"text\": \"\\n\\n\"}]}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- A station beside resource layers.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Scheduled Quarry\\n\\n\"}, {\"text\": \"What to look for\\n\", \"extra\": [{\"text\": \"- Mark or mine the ground; compare after a reset.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- A reset is due every 15 real minutes. It waits while anyone is inside.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- Carry loot home. An overdue reset blocks ordinary new arrivals.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Scheduled Quarry\\n\\n\"}, {\"text\": \"Other features\\n\", \"extra\": [{\"text\": \"- Unloading preserves this world. Reset backups last seven days.\"}, {\"text\": \"\\n\"}]}, {\"text\": \"\", \"extra\": [{\"text\": \"- With Chunky, a 128-block-radius square is prepared before entry and after resets.\"}, {\"text\": \"\"}]}]}"
+    },
+    {
+      "raw": "{\"text\": \"\", \"extra\": [{\"text\": \"Scheduled Quarry\\n\\n\"}, {\"text\": \"Try it\\n\", \"extra\": [{\"text\": \"Check preparation when Chunky is installed.\\n\", \"extra\": [{\"text\": \"Prepare progress check\", \"color\": \"blue\", \"underlined\": true, \"insertion\": \"justepicdimensions:showcase_guide\", \"clickEvent\": {\"action\": \"suggest_command\", \"value\": \"/jed pregen status justepicdimensions:showcase_scheduled_quarry\"}}]}, {\"text\": \"\"}]}]}"
+    }
+  ],
+  "resolved": true
+}

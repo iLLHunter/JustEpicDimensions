@@ -1,0 +1,22 @@
+{
+  "type": "justepicdimensions:authored",
+  "spawn_overrides": {},
+  "biomes": {
+    "type": "neoforge:any"
+  },
+  "step": "top_layer_modification",
+  "terrain_adaptation": "none",
+  "placement": {
+    "asset": "justepicdimensions:showcase_cavern_garden.nbt",
+    "centered": true,
+    "offset": [
+      0,
+      -2,
+      0
+    ],
+    "rotation": "none"
+  },
+  "height_mode": "cave_floor",
+  "min_y": 58,
+  "max_y": 78
+}

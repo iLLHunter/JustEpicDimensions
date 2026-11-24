@@ -1,0 +1,14 @@
+{
+  "type": "justepicdimensions:authored",
+  "spawn_overrides": {},
+  "biomes": [
+    "minecraft:cherry_grove"
+  ],
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "placement": {
+    "asset": "justepicdimensions:showcase_cherry_pavilion.nbt",
+    "centered": true
+  },
+  "height_mode": "surface"
+}

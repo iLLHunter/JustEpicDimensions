@@ -1,0 +1,145 @@
+{
+  "format_version": 1,
+  "display_name": "Lantern Cavern",
+  "provider": {
+    "type": "justepicdimensions:base",
+    "settings": {
+      "surface_world": false,
+      "water_vaporizes": false,
+      "spawn_height": 64,
+      "horizon": 64,
+      "fog": true
+    }
+  },
+  "lifecycle": {
+    "load_on_start": false,
+    "keep_loaded": false,
+    "automatic_unload": true,
+    "idle_seconds": 90
+  },
+  "state": {
+    "initial": {
+      "day_time": 6000,
+      "default_game_mode": "survival",
+      "difficulty": "peaceful",
+      "hardcore": false,
+      "gamerules": {
+        "spawnChunkRadius": 0,
+        "doMobSpawning": false,
+        "keepInventory": true,
+        "doWeatherCycle": false
+      },
+      "weather": {
+        "raining": false,
+        "thundering": false,
+        "clear_time": 2400000
+      }
+    }
+  },
+  "spawn": {
+    "mode": "cavern",
+    "x": 0,
+    "z": 0,
+    "fallback_block": false,
+    "min_y": 59,
+    "max_y": 77,
+    "reset_velocity": true,
+    "reset_fall_distance": true
+  },
+  "player": {
+    "inventory_group": "__default",
+    "force_game_mode": false
+  },
+  "lighting": {
+    "client_light_check": "chunks_and_updates",
+    "brightness_table": [
+      0.08,
+      0.09,
+      0.105,
+      0.125,
+      0.15,
+      0.18,
+      0.22,
+      0.27,
+      0.33,
+      0.4,
+      0.48,
+      0.57,
+      0.67,
+      0.78,
+      0.89,
+      1.0
+    ]
+  },
+  "sleep": {
+    "mode": "deny",
+    "bed_checkpoints": true
+  },
+  "respawn": {
+    "allow_here": true,
+    "destination": "justepicdimensions:showcase_cavern",
+    "priority": "destination_first"
+  },
+  "mobs": {
+    "hostile": false,
+    "peaceful": false
+  },
+  "render": {
+    "sky": {
+      "mode": "none"
+    },
+    "clouds": {
+      "visible": false
+    },
+    "fog": {
+      "color": "#182338",
+      "fixed": true,
+      "near": 4,
+      "far": 80
+    },
+    "music": {
+      "mode": "preset",
+      "preset": "under_water"
+    }
+  },
+  "travel": {
+    "check_interval": 10,
+    "cooldown": 40,
+    "passengers": "together",
+    "void": {
+      "dimension": "justepicdimensions:showcase_hub",
+      "trigger_y": -4,
+      "mode": "scaled_relative",
+      "scaling": "dimension",
+      "position": [
+        "~",
+        65,
+        "~"
+      ],
+      "remove_fall_damage": true,
+      "velocity": "reset"
+    }
+  },
+  "generation": {
+    "seed": "JED showcase cavern bands",
+    "structures": true,
+    "structure_sets": [
+      "justepicdimensions:showcase_cavern_garden",
+      "justepicdimensions:showcase_cavern_garden_b",
+      "justepicdimensions:showcase_cavern_hanging",
+      "justepicdimensions:showcase_cavern_canopy_a",
+      "justepicdimensions:showcase_cavern_canopy_b",
+      "justepicdimensions:showcase_cavern_canopy_c"
+    ]
+  },
+  "spawn_structure": {
+    "asset": "justepicdimensions:showcase_cavern_checkpoint.nbt",
+    "centered": true,
+    "offset": [
+      0,
+      -1,
+      0
+    ],
+    "load_around": 8
+  }
+}

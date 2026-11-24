@@ -1,0 +1,94 @@
+{
+  "format_version": 1,
+  "display_name": "Frost Garden",
+  "provider": {
+    "type": "justepicdimensions:surface"
+  },
+  "lifecycle": {
+    "load_on_start": false,
+    "keep_loaded": false,
+    "automatic_unload": true,
+    "idle_seconds": 90
+  },
+  "state": {
+    "initial": {
+      "day_time": 18000,
+      "default_game_mode": "survival",
+      "difficulty": "peaceful",
+      "hardcore": false,
+      "gamerules": {
+        "spawnChunkRadius": 0,
+        "doMobSpawning": false,
+        "keepInventory": true,
+        "doWeatherCycle": false,
+        "doDaylightCycle": false
+      },
+      "weather": {
+        "raining": true,
+        "thundering": false,
+        "rain_time": 2400000,
+        "thunder_time": 2400000,
+        "clear_time": 0
+      }
+    }
+  },
+  "spawn": {
+    "mode": "surface",
+    "x": 0,
+    "z": 0,
+    "fallback_block": false,
+    "reset_velocity": true,
+    "reset_fall_distance": true
+  },
+  "player": {
+    "inventory_group": "__default",
+    "force_game_mode": true
+  },
+  "generation": {
+    "seed": "JED showcase frost garden",
+    "structures": false
+  },
+  "weather": {
+    "natural_lightning": false,
+    "precipitation_block_effects": true,
+    "snow": "native",
+    "ice": "disabled",
+    "preserve_on_sleep": true
+  },
+  "sleep": {
+    "mode": "allow",
+    "bed_checkpoints": true
+  },
+  "mobs": {
+    "hostile": false,
+    "peaceful": true
+  },
+  "render": {
+    "sky": {
+      "color": "#91A7D1",
+      "biome_blend": 1
+    },
+    "clouds": {
+      "color": "#C7D5ED",
+      "height": 120
+    },
+    "fog": {
+      "color": "#BCCCE2",
+      "near": 12,
+      "far": 112
+    }
+  },
+  "environment": {
+    "policy": "justepicdimensions:showcase_frost"
+  },
+  "spawn_structure": {
+    "asset": "justepicdimensions:showcase_frost_lodge.nbt",
+    "centered": true,
+    "offset": [
+      0,
+      -1,
+      0
+    ],
+    "load_around": 8
+  }
+}

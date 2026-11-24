@@ -1,0 +1,66 @@
+{
+  "format_version": 1,
+  "rules": [
+    {
+      "id": "cold_exposure",
+      "when": {
+        "all": [
+          {
+            "sky": true
+          },
+          {
+            "weather": "rain"
+          }
+        ]
+      },
+      "effects": [
+        {
+          "id": "minecraft:slowness",
+          "duration": 80,
+          "amplifier": 0
+        }
+      ],
+      "damage": {
+        "hearts": 0.5,
+        "type": "minecraft:freeze",
+        "cooldown": "native"
+      },
+      "interval": 40,
+      "delay": 0,
+      "cleanup": "expire",
+      "effect_groups": "follow",
+      "protection": {
+        "stacking": "strongest",
+        "items": [
+          {
+            "predicate": {
+              "items": "#justepicdimensions:showcase_cold_boots"
+            },
+            "slots": [
+              "minecraft:feet"
+            ],
+            "damage_reduction_percent": 25
+          },
+          {
+            "predicate": {
+              "items": "#justepicdimensions:showcase_cold_leggings"
+            },
+            "slots": [
+              "minecraft:legs"
+            ],
+            "damage_reduction_percent": 50
+          },
+          {
+            "predicate": {
+              "items": "#justepicdimensions:showcase_cold_chestplate"
+            },
+            "slots": [
+              "minecraft:chest"
+            ],
+            "immune": true
+          }
+        ]
+      }
+    }
+  ]
+}

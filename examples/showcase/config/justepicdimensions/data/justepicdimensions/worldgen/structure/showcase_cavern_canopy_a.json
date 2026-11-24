@@ -1,0 +1,22 @@
+{
+  "type": "justepicdimensions:authored",
+  "spawn_overrides": {},
+  "biomes": {
+    "type": "neoforge:any"
+  },
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "placement": {
+    "asset": "justepicdimensions:showcase_cavern_canopy.nbt",
+    "centered": true,
+    "offset": [
+      0,
+      4,
+      0
+    ],
+    "rotation": "none"
+  },
+  "height_mode": "ceiling",
+  "min_y": 82,
+  "max_y": 112
+}

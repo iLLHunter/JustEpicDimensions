@@ -1,0 +1,119 @@
+{
+  "format_version": 1,
+  "display_name": "Team Loadout Arena",
+  "provider": {
+    "type": "justepicdimensions:surface"
+  },
+  "lifecycle": {
+    "load_on_start": false,
+    "keep_loaded": false,
+    "automatic_unload": true,
+    "idle_seconds": 90,
+    "fallback": "justepicdimensions:showcase_hub"
+  },
+  "state": {
+    "initial": {
+      "day_time": 18000,
+      "default_game_mode": "survival",
+      "difficulty": "hard",
+      "hardcore": false,
+      "gamerules": {
+        "spawnChunkRadius": 0,
+        "doMobSpawning": true,
+        "keepInventory": false,
+        "doWeatherCycle": false,
+        "doDaylightCycle": false
+      },
+      "weather": {
+        "raining": false,
+        "thundering": false,
+        "clear_time": 2400000
+      },
+      "border": {
+        "size": 128,
+        "warning_blocks": 8
+      }
+    }
+  },
+  "spawn": {
+    "mode": "surface",
+    "x": 0,
+    "z": 0,
+    "y_offset": 3,
+    "fallback_block": false,
+    "reset_velocity": true,
+    "reset_fall_distance": true
+  },
+  "player": {
+    "inventory_group": "showcase_arena",
+    "force_game_mode": true,
+    "loadouts": {
+      "first_entry": {
+        "kit": "justepicdimensions:showcase_arena_start",
+        "scope": "group",
+        "mode": "fill_empty"
+      },
+      "respawn": {
+        "kit": "justepicdimensions:showcase_arena_respawn",
+        "mode": "fill_empty",
+        "keep_inventory": "skip",
+        "grave_policy": "skip",
+        "grave_scope": "inventory_group",
+        "unknown_grave": "skip"
+      }
+    },
+    "groups": {
+      "xp": "justepicdimensions:showcase_arena",
+      "health": "justepicdimensions:showcase_arena",
+      "absorption": "justepicdimensions:showcase_arena",
+      "food": "justepicdimensions:showcase_arena",
+      "effects": "justepicdimensions:showcase_arena"
+    }
+  },
+  "sleep": {
+    "mode": "deny",
+    "bed_checkpoints": false
+  },
+  "respawn": {
+    "allow_here": true,
+    "priority": "destination_first"
+  },
+  "border": {
+    "center_on_spawn": true,
+    "centering": "on_load"
+  },
+  "mobs": {
+    "hostile": true,
+    "peaceful": false,
+    "policy": "justepicdimensions:showcase_arena"
+  },
+  "render": {
+    "sky": {
+      "color": "#453D74",
+      "biome_blend": 1
+    },
+    "clouds": {
+      "visible": false
+    },
+    "music": {
+      "mode": "preset",
+      "preset": "end_boss"
+    }
+  },
+  "access": {
+    "rule": "justepicdimensions:showcase_arena_key"
+  },
+  "instances": {
+    "policy": "justepicdimensions:showcase_team_arena"
+  },
+  "spawn_structure": {
+    "asset": "justepicdimensions:showcase_arena_platform.nbt",
+    "centered": true,
+    "offset": [
+      0,
+      -4,
+      0
+    ],
+    "load_around": 8
+  }
+}

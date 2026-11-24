@@ -1,0 +1,12 @@
+{
+  "format_version": 1,
+  "ownership": "team",
+  "state_scope": {
+    "inventory": "instance",
+    "xp": "instance",
+    "health": "instance",
+    "absorption": "instance",
+    "food": "instance",
+    "effects": "instance"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "justepicdimensions:authored",
+  "spawn_overrides": {},
+  "biomes": [
+    "minecraft:flower_forest",
+    "minecraft:meadow"
+  ],
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "placement": {
+    "asset": "justepicdimensions:showcase_meadow_pavilion.nbt",
+    "centered": true
+  },
+  "height_mode": "surface"
+}

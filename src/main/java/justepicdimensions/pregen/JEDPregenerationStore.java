@@ -1,0 +1,26 @@
+package justepicdimensions.pregen;
+import com.google.gson.*;
+import java.nio.file.*;
+import java.util.*;
+import justepicdimensions.definition.*;
+import justepicdimensions.dimension.JEDDimensionFiles;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.*;
+import net.minecraft.world.level.dimension.DimensionType;
+
+/** Main ledger is outside moved dimensions; readiness receipts live inside each actual generation. */
+public final class JEDPregenerationStore {
+ public static Path file(Path root){return root.resolve("data/justepicdimensions/pregeneration.json");}
+ public static Path marker(Path root,ResourceLocation dim){var directory=DimensionType.getStorageFolder(ResourceKey.create(Registries.DIMENSION,dim),root);var path=directory.resolve(".jed-pregeneration.json").toAbsolutePath().normalize();JEDDimensionFiles.requireSafe(root,path,false);return path;}
+ public static JsonObject empty(){var root=new JsonObject();root.addProperty("format_version",1);root.add("jobs",new JsonObject());return root;}
+ public static JsonObject read(Path world){var path=file(world);JEDDimensionFiles.requireSafe(world,path,false);if(!Files.exists(path))return empty();var root=JEDJson.object(JEDJson.read(path),"pregeneration ledger");validate(root);return root.deepCopy();}
+ public static void write(Path world,JsonObject snapshot){validate(snapshot);JEDDimensionFiles.requireSafe(world,file(world),false);JEDDimensionFiles.writeDurable(file(world),snapshot);}
+ public static boolean ready(Path world,ResourceLocation dimension,String signature){var path=marker(world,dimension);if(!Files.exists(path))return false;var json=JEDJson.object(JEDJson.read(path),"pregeneration receipt");JEDJson.keys(json,Set.of("format_version","dimension","signature","token","state"),"pregeneration receipt");if(JEDJson.integer(json.get("format_version"),"receipt version")!=1||!dimension.toString().equals(JEDJson.string(json.get("dimension"),"receipt dimension")))throw new JEDDefinitionException("Invalid pregeneration receipt identity");UUID.fromString(JEDJson.string(json.get("token"),"receipt token"));return (!json.has("state")||JEDPregenerationPolicy.choice(json,"state",null,Set.of("pending","complete")).equals("complete"))&&signature.equals(JEDJson.string(json.get("signature"),"receipt signature"));}
+ public static void pending(Path world,ResourceLocation dimension,JsonObject job){if(!Files.exists(marker(world,dimension)))receipt(world,dimension,job,"pending");}
+ public static void complete(Path world,ResourceLocation dimension,JsonObject job){receipt(world,dimension,job,"complete");}
+ private static void receipt(Path world,ResourceLocation dimension,JsonObject job,String state){var value=new JsonObject();value.addProperty("format_version",1);value.addProperty("dimension",dimension.toString());value.addProperty("state",state);value.add("signature",job.get("signature").deepCopy());value.add("token",job.get("token").deepCopy());JEDDimensionFiles.writeDurable(marker(world,dimension),value);}
+ public static void validate(JsonObject root){JEDJson.keys(root,Set.of("format_version","jobs"),"pregeneration ledger");if(JEDJson.integer(root.get("format_version"),"pregeneration version")!=1)throw new JEDDefinitionException("Unsupported pregeneration ledger");for(var entry:JEDJson.object(root.get("jobs"),"pregeneration jobs").entrySet()){
+  JEDDimensionDefinition.id(entry.getKey(),"saved dimension");var j=JEDJson.object(entry.getValue(),"pregeneration job");JEDJson.keys(j,Set.of("policy","signature","token","state","manual","plan","receipt","chunks","percent","error","ever","one_time"),"pregeneration job");JEDDimensionDefinition.id(JEDJson.string(j.get("policy"),"saved policy"),"saved policy");JEDJson.string(j.get("signature"),"saved signature");UUID.fromString(JEDJson.string(j.get("token"),"saved token"));JEDPregenerationPolicy.choice(j,"state",null,Set.of("queued","launching","running","pausing","paused","cancelling","cancelled","complete","failed","waiting"));if(!j.has("manual")||!j.has("ever"))throw new JEDDefinitionException("Missing saved pregeneration flags");JEDPregenerationPolicy.flag(j,"manual",false);JEDPregenerationPolicy.flag(j,"ever",false);if(j.has("one_time")){var policy=JEDPregenerationPolicy.decode(ResourceLocation.parse(j.get("policy").getAsString()),new JEDSourceDocument(JEDJson.object(j.get("one_time"),"manual job policy"),"saved manual job"));if(policy.initial()||policy.afterReset()||!policy.arrivals().equals("open")||!policy.signature().equals(j.get("signature").getAsString()))throw new JEDDefinitionException("Invalid saved one-time job policy");}if(j.has("plan"))JEDPregenerationPolicy.Plan.read(JEDJson.object(j.get("plan"),"saved selection"));if(j.has("receipt"))JEDJson.string(j.get("receipt"),"saved ownership receipt");if(j.has("error"))JEDJson.string(j.get("error"),"saved error");if(j.has("chunks")&&(!j.get("chunks").isJsonPrimitive()||!j.get("chunks").getAsJsonPrimitive().isNumber()||j.get("chunks").getAsBigDecimal().signum()<0||j.get("chunks").getAsBigDecimal().stripTrailingZeros().scale()>0))throw new JEDDefinitionException("Invalid saved chunk count");if(j.has("percent"))JEDPregenerationPolicy.number(j,"percent",0,0,100);
+ }}
+ private JEDPregenerationStore(){}
+}

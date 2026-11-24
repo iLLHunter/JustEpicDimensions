@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "justepicdimensions:showcase_cavern_hanging",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 5,
+    "separation": 2,
+    "salt": 3214,
+    "frequency": 1.0
+  }
+}

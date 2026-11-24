@@ -1,0 +1,40 @@
+{
+  "type": "justepicdimensions:showcase_cavern",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "justepicdimensions:showcase_cavern",
+    "biome_source": {
+      "type": "justepicdimensions:weighted_regions",
+      "region_size": 96,
+      "shape": "irregular",
+      "entries": [
+        {
+          "biome": "minecraft:lush_caves",
+          "weight": 1
+        }
+      ],
+      "height_bands": [
+        {
+          "min_y": 0,
+          "max_y": 80,
+          "entries": [
+            {
+              "biome": "minecraft:lush_caves",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "min_y": 80,
+          "max_y": 128,
+          "entries": [
+            {
+              "biome": "minecraft:dripstone_caves",
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

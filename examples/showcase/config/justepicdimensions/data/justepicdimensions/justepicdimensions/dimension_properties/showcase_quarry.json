@@ -1,0 +1,69 @@
+{
+  "format_version": 1,
+  "display_name": "Temporary Quarry",
+  "provider": {
+    "type": "justepicdimensions:surface"
+  },
+  "lifecycle": {
+    "load_on_start": false,
+    "keep_loaded": false,
+    "automatic_unload": true,
+    "idle_seconds": 30,
+    "temporary": true,
+    "fallback": "justepicdimensions:showcase_hub"
+  },
+  "state": {
+    "initial": {
+      "day_time": 6000,
+      "default_game_mode": "survival",
+      "difficulty": "peaceful",
+      "hardcore": false,
+      "gamerules": {
+        "spawnChunkRadius": 0,
+        "doMobSpawning": false,
+        "keepInventory": true,
+        "doWeatherCycle": false
+      },
+      "weather": {
+        "raining": false,
+        "thundering": false,
+        "clear_time": 2400000
+      },
+      "border": {
+        "size": 256
+      },
+      "day_time_per_tick": 0
+    }
+  },
+  "spawn": {
+    "mode": "surface",
+    "x": 0,
+    "z": 0,
+    "y_offset": 3,
+    "fallback_block": false,
+    "reset_velocity": true,
+    "reset_fall_distance": true
+  },
+  "player": {
+    "inventory_group": "__default",
+    "force_game_mode": false
+  },
+  "border": {
+    "center_on_spawn": true,
+    "centering": "on_load"
+  },
+  "mobs": {
+    "hostile": false,
+    "peaceful": false
+  },
+  "spawn_structure": {
+    "asset": "justepicdimensions:showcase_quarry_station.nbt",
+    "centered": true,
+    "offset": [
+      0,
+      -4,
+      0
+    ],
+    "load_around": 8
+  }
+}

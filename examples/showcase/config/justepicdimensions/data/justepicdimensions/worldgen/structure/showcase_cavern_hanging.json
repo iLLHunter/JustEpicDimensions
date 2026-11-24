@@ -1,0 +1,16 @@
+{
+  "type": "justepicdimensions:authored",
+  "spawn_overrides": {},
+  "biomes": {
+    "type": "neoforge:any"
+  },
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "placement": {
+    "asset": "justepicdimensions:showcase_cavern_hanging.nbt",
+    "centered": true
+  },
+  "height_mode": "ceiling",
+  "min_y": 82,
+  "max_y": 112
+}

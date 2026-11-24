@@ -1,0 +1,48 @@
+{
+  "format_version": 1,
+  "sources": [
+    "natural",
+    "chunk_generation"
+  ],
+  "deny": [
+    "minecraft:wolf",
+    "minecraft:fox",
+    "minecraft:cow",
+    "minecraft:chicken",
+    "minecraft:pig"
+  ],
+  "rules": [
+    {
+      "entities": "minecraft:sheep",
+      "weight_multiplier": 3,
+      "caps": [
+        {
+          "limit": 240,
+          "scope": "dimension"
+        },
+        {
+          "limit": 48,
+          "scope": "player",
+          "radius": 48
+        }
+      ]
+    },
+    {
+      "entities": "minecraft:rabbit",
+      "caps": [
+        {
+          "limit": 12,
+          "scope": "dimension"
+        }
+      ]
+    }
+  ],
+  "additions": [
+    {
+      "entity": "minecraft:rabbit",
+      "weight": 8,
+      "min_count": 1,
+      "max_count": 2
+    }
+  ]
+}

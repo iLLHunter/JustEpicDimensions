@@ -1,0 +1,1 @@
+{"jars":[{"identifier":{"group":"arbitrage","artifact":"arbitrage"},"version":{"range":"[${arbitrage_version}]","artifactVersion":"${arbitrage_version}"},"path":"META-INF/jarjar/arbitrage.jar","isObfuscated":false}]}

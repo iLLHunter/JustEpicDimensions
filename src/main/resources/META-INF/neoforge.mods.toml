@@ -1,0 +1,30 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="LGPL-3.0-only"
+issueTrackerURL="https://github.com/iLLHunter/JustEpicDimensions/issues"
+[[mods]]
+modId="justepicdimensions"
+version="${mod_version}"
+displayName="Just Epic Dimensions"
+logoFile="justepicdimensions.png"
+authors="iLLHunter"
+credits="Based on masa's Just Enough Dimensions."
+description='''Add, run and manage extra dimensions, each with its own world state, generation, rendering, player rules and lifecycle. Use JSON files and datapacks, the in-game builder, or commands while the server is running.'''
+[[dependencies.justepicdimensions]]
+modId="arbitrage"
+type="required"
+versionRange="[${arbitrage_version}]"
+ordering="NONE"
+side="BOTH"
+[[dependencies.justepicdimensions]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.243,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.justepicdimensions]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+ordering="NONE"
+side="BOTH"

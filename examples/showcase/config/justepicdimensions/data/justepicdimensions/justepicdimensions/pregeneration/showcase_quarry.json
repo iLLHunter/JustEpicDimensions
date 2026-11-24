@@ -1,0 +1,21 @@
+{
+  "format_version": 1,
+  "shape": "square",
+  "area": {
+    "center": "spawn",
+    "radius": 128
+  },
+  "pattern": "concentric",
+  "arrivals": "ordinary",
+  "automatic": {
+    "initial": true,
+    "after_reset": true
+  },
+  "workload": {
+    "mode": "tps",
+    "pause_below_tps": 18,
+    "resume_above_tps": 19,
+    "recovery_seconds": 10
+  },
+  "max_chunks": 1024
+}

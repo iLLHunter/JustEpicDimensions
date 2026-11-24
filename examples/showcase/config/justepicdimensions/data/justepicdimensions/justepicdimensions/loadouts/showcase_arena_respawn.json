@@ -1,0 +1,45 @@
+{
+  "format_version": 1,
+  "containers": [
+    {
+      "backend": "minecraft",
+      "container": "hotbar",
+      "slots": [
+        {
+          "index": 0,
+          "item": {
+            "id": "minecraft:stone_sword",
+            "count": 1
+          }
+        },
+        {
+          "index": 3,
+          "item": {
+            "id": "minecraft:bread",
+            "count": 6
+          }
+        },
+        {
+          "index": 4,
+          "item": {
+            "id": "minecraft:torch",
+            "count": 16
+          }
+        }
+      ]
+    },
+    {
+      "backend": "minecraft",
+      "container": "offhand",
+      "slots": [
+        {
+          "index": 0,
+          "item": {
+            "id": "minecraft:shield",
+            "count": 1
+          }
+        }
+      ]
+    }
+  ]
+}

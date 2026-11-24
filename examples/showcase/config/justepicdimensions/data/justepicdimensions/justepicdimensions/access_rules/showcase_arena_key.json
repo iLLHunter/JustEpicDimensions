@@ -1,0 +1,11 @@
+{
+  "format_version": 1,
+  "condition": {
+    "item": {
+      "predicate": {
+        "items": "minecraft:tripwire_hook"
+      },
+      "min": 1
+    }
+  }
+}

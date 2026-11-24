@@ -1,0 +1,89 @@
+{
+  "format_version": 1,
+  "display_name": "Pillarless End",
+  "provider": {
+    "type": "justepicdimensions:end",
+    "settings": {
+      "water_vaporizes": false
+    }
+  },
+  "lifecycle": {
+    "load_on_start": false,
+    "keep_loaded": false,
+    "automatic_unload": true,
+    "idle_seconds": 90
+  },
+  "state": {
+    "initial": {
+      "day_time": 6000,
+      "default_game_mode": "creative",
+      "difficulty": "peaceful",
+      "hardcore": false,
+      "gamerules": {
+        "spawnChunkRadius": 0,
+        "doMobSpawning": false,
+        "keepInventory": true,
+        "doWeatherCycle": false
+      },
+      "weather": {
+        "raining": false,
+        "thundering": false,
+        "clear_time": 2400000
+      },
+      "border": {
+        "size": 2048
+      }
+    }
+  },
+  "spawn": {
+    "mode": "surface",
+    "x": 24,
+    "z": 0,
+    "min_y": 40,
+    "max_y": 100,
+    "ignore_suitability": true,
+    "fallback_block": true,
+    "reset_velocity": true,
+    "reset_fall_distance": true
+  },
+  "player": {
+    "inventory_group": "__default",
+    "force_game_mode": true
+  },
+  "generation": {
+    "seed": "JED showcase independent End",
+    "structures": true
+  },
+  "end": {
+    "dragon_fight": true,
+    "generate_spikes": false,
+    "reconstruct_spikes": false
+  },
+  "border": {
+    "center_on_spawn": true,
+    "centering": "on_load"
+  },
+  "mobs": {
+    "hostile": false,
+    "peaceful": false
+  },
+  "render": {
+    "sky": {
+      "mode": "end",
+      "color": "#795AB0",
+      "biome_blend": 1
+    },
+    "clouds": {
+      "visible": false
+    },
+    "fog": {
+      "color": "#514275",
+      "near": 8,
+      "far": 160
+    },
+    "music": {
+      "mode": "preset",
+      "preset": "end"
+    }
+  }
+}

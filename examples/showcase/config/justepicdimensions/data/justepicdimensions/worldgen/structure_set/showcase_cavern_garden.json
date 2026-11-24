@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "justepicdimensions:showcase_cavern_garden",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 2,
+    "separation": 0,
+    "salt": 3213,
+    "frequency": 1.0
+  }
+}

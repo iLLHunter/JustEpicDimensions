@@ -1,0 +1,35 @@
+{
+  "format_version": 1,
+  "sources": [
+    "natural"
+  ],
+  "allow": [
+    "minecraft:zombie",
+    "minecraft:skeleton",
+    "minecraft:spider"
+  ],
+  "rules": [
+    {
+      "entities": [
+        "minecraft:zombie",
+        "minecraft:skeleton",
+        "minecraft:spider"
+      ],
+      "caps": [
+        {
+          "limit": 18,
+          "scope": "dimension"
+        },
+        {
+          "limit": 8,
+          "scope": "player",
+          "radius": 48
+        }
+      ]
+    },
+    {
+      "entities": "minecraft:zombie",
+      "weight_multiplier": 2
+    }
+  ]
+}

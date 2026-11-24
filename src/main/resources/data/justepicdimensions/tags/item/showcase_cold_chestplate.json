@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:leather_chestplate",
+    "minecraft:chainmail_chestplate",
+    "minecraft:golden_chestplate",
+    "minecraft:iron_chestplate",
+    "minecraft:diamond_chestplate",
+    "minecraft:netherite_chestplate",
+    {
+      "id": "mpsremodularized:primitive_power_armor_chestplate",
+      "required": false
+    },
+    {
+      "id": "mpsremodularized:prototype_power_armor_chestplate",
+      "required": false
+    },
+    {
+      "id": "mpsremodularized:prototype_power_armor_chestplate_mkii",
+      "required": false
+    },
+    {
+      "id": "mpsremodularized:power_armor_chestplate",
+      "required": false
+    }
+  ]
+}

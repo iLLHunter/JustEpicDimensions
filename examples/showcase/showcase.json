@@ -1,0 +1,238 @@
+{
+  "format_version": 1,
+  "title": "Just Epic Dimensions 2.0.0 playable showcase",
+  "kind": "Human-readable index; install the individual files under config/",
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.243",
+  "namespace": "justepicdimensions",
+  "dimensions": [
+    {
+      "id": "justepicdimensions:showcase_hub",
+      "name": "Showcase Hub",
+      "command": "/tpj justepicdimensions:showcase_hub spawn",
+      "features": [
+        "Creative mode while visiting; previous normal mode restores on exit",
+        "One-time centered spawn structure placement, including block states and working block entities",
+        "Independent 512-block border centered on spawn",
+        "Radius-1 retained spawn chunks with continuous empty-dimension ticking",
+        "Paused noon clock and custom sky",
+        "Expanded labelled demonstration stations and tour book",
+        "Operator monitoring station: in-game diagnostics and client-linked browser dashboard"
+      ],
+      "notes": [
+        "Start here using /tpj; this bundle does not change the normal initial spawn dimension.",
+        "The furnace contains eight raw iron and coal. Visit another dimension and return to see smelting continue.",
+        "Only the hub stays loaded; spawnChunkRadius is 0 in the other showcases.",
+        "The showcase hub explicitly enables monitoring history; global monitoring remains unchanged.",
+        "Showcase installation does not grant operator permissions or change initial player placement."
+      ],
+      "terrain_file": "config/justepicdimensions/data/justepicdimensions/dimension/showcase_hub.json",
+      "properties_file": "config/justepicdimensions/data/justepicdimensions/justepicdimensions/dimension_properties/showcase_hub.json"
+    },
+    {
+      "id": "justepicdimensions:showcase_meadow",
+      "name": "Prismatic Meadow",
+      "command": "/tpj justepicdimensions:showcase_meadow spawn",
+      "features": [
+        "Flower-forest terrain with its own seed",
+        "Mint grass, teal foliage, lavender water, pink clouds and a larger tinted sun",
+        "Bounded repeating afternoon clock and a limited celestial arc",
+        "Sky travel above Y=224 returns to the hub, including passengers",
+        "Irregular weighted flower-forest, meadow and cherry-grove regions",
+        "Repeated biome-restricted open pavilions with outdoor cooking, workstations and food gardens"
+      ],
+      "notes": [
+        "Native foliage blending and client Clouds/color settings still apply.",
+        "Fly upward or use /tp @s ~ 230 ~ to try the sky return.",
+        "Sun position and raw clock are separate controls; repeating this window keeps the same calendar day.",
+        "Use the worldgen biome map at this dimension seed to inspect the distribution before generating more chunks.",
+        "Pavilion placement uses spacing 10 and separation 4; cherry pavilions only generate in cherry groves."
+      ],
+      "terrain_file": "config/justepicdimensions/data/justepicdimensions/dimension/showcase_meadow.json",
+      "properties_file": "config/justepicdimensions/data/justepicdimensions/justepicdimensions/dimension_properties/showcase_meadow.json"
+    },
+    {
+      "id": "justepicdimensions:showcase_nightmare",
+      "name": "Crimson Nightmare",
+      "command": "/tpj justepicdimensions:showcase_nightmare spawn",
+      "features": [
+        "Extreme dimension-only biome tints: vivid red grass, pitch-black biome-tinted leaves and violet water",
+        "Fixed dark-purple Overworld sky and a four-times-size orange-red sun; moon, stars and sunrise gradient hidden",
+        "Fixed acid-green clouds at Y=96 and fixed green fog from 4 to 160 blocks with cylindrical distance",
+        "Paused late-afternoon clock (11000) preserves the sun composition; native Nether music with a 1–3 second selection delay",
+        "Independent Overworld noise terrain and seed using jungle vegetation, without generated structures or natural mob spawning"
+      ],
+      "notes": [
+        "This is an appearance showcase; its threatening atmosphere does not enable hostile spawning or hardcore.",
+        "The palette affects this dimension only. Biome-tinted grass and oak/jungle foliage change; fixed-color texture details retain their own colors.",
+        "Clouds must be enabled in Minecraft, and enableColorOverrides must be enabled in the JED client config."
+      ],
+      "terrain_file": "config/justepicdimensions/data/justepicdimensions/dimension/showcase_nightmare.json",
+      "properties_file": "config/justepicdimensions/data/justepicdimensions/justepicdimensions/dimension_properties/showcase_nightmare.json"
+    },
+    {
+      "id": "justepicdimensions:showcase_long_day",
+      "name": "Long-Day Wilderness",
+      "command": "/tpj justepicdimensions:showcase_long_day spawn",
+      "features": [
+        "Normal multinoise Overworld biomes and structures with an independent generation seed",
+        "JED custom 36000-tick day / 6000-tick night cycle",
+        "Friendly natural spawning enabled while hostile natural spawning is disabled",
+        "Independent weather; natural lightning disabled",
+        "Wildlife observation deck with wolves, foxes, cows, chickens and pigs excluded from natural and initial-generation spawning",
+        "Sheep weights increased; sheep dimension/player caps and added rabbit entries"
+      ],
+      "notes": [
+        "At normal clock speed the combined cycle is 35 real minutes, without changing simulation speed.",
+        "/jed seed justepicdimensions:showcase_long_day reports this dimension’s effective seed.",
+        "Named time commands keep Minecraft’s raw values; they are not rescaled to the custom cycle.",
+        "Rules cover natural spawning and initial chunk-generation animals. Other types, including modded creatures, remain eligible. Existing animals and deliberate spawn eggs are not removed or blocked.",
+        "The 240-loaded and 48-within-48-block limits count sheep only. Minecraft's separate shared creature cap still applies, so other creatures can prevent further natural sheep spawning.",
+        "Native placement, light, biome checks and mob caps still apply; additions are opportunities, not forced spawns."
+      ],
+      "terrain_file": "config/justepicdimensions/data/justepicdimensions/dimension/showcase_long_day.json",
+      "properties_file": "config/justepicdimensions/data/justepicdimensions/justepicdimensions/dimension_properties/showcase_long_day.json"
+    },
+    {
+      "id": "justepicdimensions:showcase_frost",
+      "name": "Frost Garden",
+      "command": "/tpj justepicdimensions:showcase_frost spawn",
+      "features": [
+        "Snowy-plains terrain and persistent snow weather",
+        "Snow can accumulate while water freezing is independently disabled",
+        "Sleep is allowed and does not clear the weather",
+        "Cold sky/cloud/fog colors",
+        "Survival expedition lodge with sheltered and exposed testing areas",
+        "Sky-exposed snowfall applies Slowness and periodic freezing damage",
+        "Vanilla and MPS Re-modularized Power Armor boots/leggings reduce direct hazard damage; their chestplates suppress the complete rule"
+      ],
+      "notes": [
+        "Starts at a paused nighttime so a bed can demonstrate weather retention. With doDaylightCycle=false, sleeping does not advance the clock.",
+        "Disabling ice creation does not remove ice already generated by a terrain feature.",
+        "Snow accumulates through native ticking; JED does not blanket-repaint existing terrain.",
+        "Take food and protective gear before leaving the roof. Boots reduce damage 25%, leggings 50%; strongest item wins.",
+        "Vanilla and all four MPS Power Armor tiers use the same equipped-slot rules. Their chestplates grant full protection against this showcase rule; lingering Slowness expires normally."
+      ],
+      "terrain_file": "config/justepicdimensions/data/justepicdimensions/dimension/showcase_frost.json",
+      "properties_file": "config/justepicdimensions/data/justepicdimensions/justepicdimensions/dimension_properties/showcase_frost.json"
+    },
+    {
+      "id": "justepicdimensions:showcase_cavern",
+      "name": "Lantern Cavern",
+      "command": "/tpj justepicdimensions:showcase_cavern spawn",
+      "features": [
+        "Enclosed lush cavern with no skylight and a custom dimension type",
+        "16-entry brightness table, full-chunk/update light verification and dark fog",
+        "Beds save checkpoints but cannot be used to sleep",
+        "8:1 coordinate scale; void travel returns to the hub using native dimension scaling",
+        "Rolling moss-covered terrain, shallow pools and an uneven stone ceiling",
+        "Native lush-cave vegetation and dense glow-berry canopies",
+        "Lush lower and dripstone upper biome bands",
+        "Illuminated gardens, ceiling-hanging ruins and a signed bed checkpoint"
+      ],
+      "notes": [
+        "Sleeping is explicitly denied. Beds are checkpoints only: a valid bed can save a respawn point, but cannot start sleep or skip night.",
+        "No skylight, mossy slopes and an uneven stone ceiling make the custom brightness and lamp-light contrast visible.",
+        "Clocks/ordinary compasses retain non-surface behavior. Water placement does not evaporate.",
+        "/tpj justepicdimensions:showcase_cavern 20 -12 20 tests the void return near hub X/Z 160.",
+        "Terrain and decoration use native noise settings and normal biome features; no flat grass/deepslate chamber.",
+        "Inspect biome IDs below and above Y=80; ordinary bed sleep remains denied."
+      ],
+      "terrain_file": "config/justepicdimensions/data/justepicdimensions/dimension/showcase_cavern.json",
+      "properties_file": "config/justepicdimensions/data/justepicdimensions/justepicdimensions/dimension_properties/showcase_cavern.json"
+    },
+    {
+      "id": "justepicdimensions:showcase_arena",
+      "name": "Loadout Arena",
+      "command": "/tpj justepicdimensions:showcase_arena spawn",
+      "features": [
+        "Separate inventory group and forced Survival mode",
+        "First-entry kit plus a smaller respawn kit; native hotbar, armor and offhand containers",
+        "Nighttime hostile natural spawning, Hard difficulty and no friendly natural spawning",
+        "Independent 128-block border, denied bed checkpoints, and death routing back into the arena",
+        "A carried hub key unlocks entry; /tpj list shows a locked destination without it",
+        "Independent XP, capped health, absorption, food and paused effect snapshots",
+        "Natural zombies, skeletons and spiders with population caps",
+        "Personal arena instances with each configured category scoped per instance"
+      ],
+      "notes": [
+        "Your original inventory/Ender Chest/accessory state returns on leaving this group. Existing arena gear is restored on re-entry.",
+        "Death drops arena gear. Installed grave integrations may suppress the respawn kit when gear is recoverable; that is intentional.",
+        "Use /tpj justepicdimensions:showcase_hub spawn to leave. This dimension is permanent, not reset on exit.",
+        "Take a tripwire-hook Arena Key from the hub before ordinary entry. It is checked in the departing inventory, before arena gear loads.",
+        "Leave, change your ordinary state, then return: saved arena values restore independently. Same-group death still follows native death rules.",
+        "Operators: /tpj instance create justepicdimensions:showcase_arena, then enter the returned instance ID; exit returns through the authorized entry/fallback route."
+      ],
+      "terrain_file": "config/justepicdimensions/data/justepicdimensions/dimension/showcase_arena.json",
+      "properties_file": "config/justepicdimensions/data/justepicdimensions/justepicdimensions/dimension_properties/showcase_arena.json"
+    },
+    {
+      "id": "justepicdimensions:showcase_quarry",
+      "name": "Temporary Quarry",
+      "command": "/tpj justepicdimensions:showcase_quarry spawn",
+      "features": [
+        "Layered resource terrain with a native flat generator",
+        "Temporary lifecycle with automatic idle unload after 30 seconds of eligibility",
+        "World files reset through the temporary-dimension lifecycle",
+        "Shares the ordinary inventory group so mined items can be brought back"
+      ],
+      "notes": [
+        "TEMPORARY: blocks, chests, builds and loose items here are disposable. Bring out anything you want to keep.",
+        "After everybody leaves, tickets/active work must drain before the 30-second idle close/reset can happen.",
+        "Shutdown also cleans a loaded temporary dimension. Forced chunks can postpone ordinary idle unloading."
+      ],
+      "terrain_file": "config/justepicdimensions/data/justepicdimensions/dimension/showcase_quarry.json",
+      "properties_file": "config/justepicdimensions/data/justepicdimensions/justepicdimensions/dimension_properties/showcase_quarry.json"
+    },
+    {
+      "id": "justepicdimensions:showcase_end",
+      "name": "Pillarless End",
+      "command": "/tpj justepicdimensions:showcase_end spawn",
+      "features": [
+        "Independent End terrain seed and native dragon fight data",
+        "No naturally generated spike pillars and no pillar reconstruction during crystal resummoning",
+        "Forced Creative observation, local border, purple fog and End music",
+        "End provider retains native End-return behavior"
+      ],
+      "notes": [
+        "A native dragon fight is enabled; Creative mode is for observing it.",
+        "This is a separate dimension and does not alter minecraft:the_end.",
+        "Native exit portals retain End-return behavior; /tpj can always return you to the hub."
+      ],
+      "terrain_file": "config/justepicdimensions/data/justepicdimensions/dimension/showcase_end.json",
+      "properties_file": "config/justepicdimensions/data/justepicdimensions/justepicdimensions/dimension_properties/showcase_end.json"
+    },
+    {
+      "id": "justepicdimensions:showcase_team_arena",
+      "name": "Team Loadout Arena",
+      "command": "/tpj justepicdimensions:showcase_team_arena spawn",
+      "features": [
+        "Team-owned arena runs with current scoreboard-team membership",
+        "Per-player snapshots isolated per instance; membership loss uses the existing secure evacuation"
+      ],
+      "notes": [
+        "Operators: /team add showcase_blue; /team join showcase_blue <player>; /tpj instance create justepicdimensions:showcase_team_arena",
+        "Use /tpj instance enter <id>; build a marker, exit, and compare with another authorized personal/team run. No automatic world creation or relaxed command permissions."
+      ],
+      "terrain_file": "config/justepicdimensions/data/justepicdimensions/dimension/showcase_team_arena.json",
+      "properties_file": "config/justepicdimensions/data/justepicdimensions/justepicdimensions/dimension_properties/showcase_team_arena.json"
+    },
+    {
+      "id": "justepicdimensions:showcase_scheduled_quarry",
+      "name": "Scheduled Quarry",
+      "command": "/tpj justepicdimensions:showcase_scheduled_quarry spawn",
+      "features": [
+        "Persistent resource terrain with a 15-minute real-time recurring reset",
+        "Due resets defer while occupied and block ordinary arrivals; normal idle unloading saves terrain",
+        "When useShowcase and Chunky are present, bounded preparation automatically runs initially and after reset"
+      ],
+      "notes": [
+        "DISPOSABLE: carry mined items out. A due reset waits until empty; the lifecycle fallback is the hub. Scheduled history is retained seven days.",
+        "Without Chunky this quarry stays usable. With Chunky, /jed pregen status justepicdimensions:showcase_scheduled_quarry reports readiness.",
+        "Optional pregeneration is supplied in memory when useShowcase is enabled; an explicit pregeneration field in the installed properties takes precedence."
+      ],
+      "terrain_file": "config/justepicdimensions/data/justepicdimensions/dimension/showcase_scheduled_quarry.json",
+      "properties_file": "config/justepicdimensions/data/justepicdimensions/justepicdimensions/dimension_properties/showcase_scheduled_quarry.json"
+    }
+  ]
+}

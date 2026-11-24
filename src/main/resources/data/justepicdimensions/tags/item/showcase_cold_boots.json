@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:leather_boots",
+    "minecraft:chainmail_boots",
+    "minecraft:golden_boots",
+    "minecraft:iron_boots",
+    "minecraft:diamond_boots",
+    "minecraft:netherite_boots",
+    {
+      "id": "mpsremodularized:primitive_power_armor_boots",
+      "required": false
+    },
+    {
+      "id": "mpsremodularized:prototype_power_armor_boots",
+      "required": false
+    },
+    {
+      "id": "mpsremodularized:prototype_power_armor_boots_mkii",
+      "required": false
+    },
+    {
+      "id": "mpsremodularized:power_armor_boots",
+      "required": false
+    }
+  ]
+}

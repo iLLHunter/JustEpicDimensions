@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "rules": [
+    {
+      "id": "refresh",
+      "action": "reset",
+      "clock": "real_time",
+      "interval_seconds": 900,
+      "occupied": "defer",
+      "arrivals": "ordinary",
+      "relocate": true,
+      "retention": {
+        "mode": "age",
+        "days": 7
+      }
+    }
+  ]
+}

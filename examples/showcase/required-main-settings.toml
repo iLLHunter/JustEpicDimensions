@@ -1,0 +1,8 @@
+# Uncustomized TOMLs can be regenerated for current defaults. Merge these settings into customized TOMLs.
+# Preserve other globalInventoryItems entries when adding the JED guide ID.
+enableSeparateWorldInfo = true
+enableSeparateWorldBorders = true
+enablePlayerInventoryGroups = true
+enableForcedGameModes = true
+enableCommandRedirecting = true
+globalInventoryItems = ["justepicdimensions:guide_book"]

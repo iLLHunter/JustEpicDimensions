@@ -1,0 +1,492 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.147'
+}
+group = 'justepicdimensions'
+version = '2.0.0'
+def arbitrageVersion = '1.0.0'
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+sourceSets { coremod; arbitrage; validation }
+sourceSets.create('coremodTest')
+
+// Third-party test mods come from mc-testkit's shared fixture store, never from this repository (testkit.toml
+// [fixtures]). A suite passes each as TESTKIT_FIXTURE_<KEY>; outside one, validation/testfixtures.py resolves the same
+// path through the toolkit checkout.
+def fixturePaths = [:]
+def testFixture = { String key ->
+    fixturePaths.computeIfAbsent(key) {
+        def value = System.getenv("TESTKIT_FIXTURE_${key}")
+        if (!value) {
+            value = providers.exec { commandLine 'python3', file('validation/testfixtures.py').path, key }
+                .standardOutput.asText.get().trim()
+        }
+        file(value)
+    }
+}
+def fixtureJars = { String key, List<String> excludes = [] ->
+    fileTree(dir: testFixture(key), include: '*.jar', excludes: excludes).files.collect { it.absolutePath }.sort()
+}
+// Sodium's mod classes are a Jar-in-Jar entry of the pinned Sodium download; contracts read the extracted entry.
+def sodiumModJar = tasks.register('sodiumModJar', Copy) {
+    from(zipTree(testFixture('SODIUM'))) {
+        include 'META-INF/jarjar/*-mod.jar'
+        eachFile { path = 'sodium-mod.jar' }
+    }
+    includeEmptyDirs = false
+    into layout.buildDirectory.dir('fixtures/sodium')
+}
+def sodiumModFile = layout.buildDirectory.file('fixtures/sodium/sodium-mod.jar')
+
+// Test-only addon for exercising installed production runtimes without DevLaunch.
+tasks.register('distributionValidationJar', Jar) {
+    archiveFileName = 'jed-validation.jar'
+    destinationDirectory = layout.buildDirectory.dir('diagnostics')
+    from sourceSets.validation.output
+    manifest.attributes('FMLModType': 'MOD', 'Automatic-Module-Name': 'jed.validation')
+}
+
+tasks.register('renderAssetFixtures', JavaExec) {
+    classpath = sourceSets.validation.runtimeClasspath
+    mainClass = 'justepicdimensions.recheck.RenderAssetFixtures'
+    args file(providers.gradleProperty('assetRun').getOrElse('validation/unused')).absolutePath
+    args 'C:/Users/onlyk/.gradle/caches/neoformruntime/assets'
+}
+
+tasks.register('networkWriteContracts', JavaExec) {
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.NetworkWriteContracts'
+}
+tasks.register('loginClassesContracts', JavaExec) {
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.LoginClassesContracts'
+}
+tasks.register('spawnChunkClassesContracts', JavaExec) {
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.SpawnChunkClassesContracts'
+}
+tasks.register('serverLevelHookContracts', JavaExec) {
+    description = 'MinecraftServer.getLevel is hooked by JED: no call before the load guard, and every caller is reviewed'
+    def scanned = sourceSets.main.output.classesDirs + sourceSets.validation.output.classesDirs
+    inputs.files(scanned)
+    classpath = sourceSets.coremodTest.runtimeClasspath
+    mainClass = 'arbitrage.coremod.ServerLevelHookContracts'
+    argumentProviders.add({ scanned.files.collect { it.absolutePath } } as CommandLineArgumentProvider)
+}
+tasks.register('unloadOwnershipContracts', JavaExec) {
+    classpath = sourceSets.coremodTest.runtimeClasspath
+    mainClass = 'arbitrage.coremod.UnloadOwnershipContracts'
+}
+tasks.register('spawnAreaContracts', JavaExec) {
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.SpawnAreaContracts'
+}
+tasks.register('renderTransformContracts', JavaExec) {
+    dependsOn 'createMinecraftArtifacts'
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.RenderTransformContracts'
+    args file('build/moddev/artifacts/neoforge-21.1.243.jar').absolutePath
+}
+
+tasks.register('schematicReaderContracts', JavaExec) {
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.SchematicReaderContracts'
+}
+tasks.register('structureFixtures', JavaExec) {
+    classpath = sourceSets.validation.runtimeClasspath
+    mainClass = 'justepicdimensions.recheck.StructureFixtures'
+    args file(providers.gradleProperty('structureRun').get()).absolutePath
+    // Any vanilla 1.21.1 save: its level.dat seeds the template saves (validation/RunValidationSuite.py makes one).
+    args file(providers.gradleProperty('structureTemplateSave').getOrElse('validation/runs/dimension-headless-travel13/server/dimension-disposable-travel13')).absolutePath
+    args file('build/moddev/artifacts/neoforge-21.1.243-client-extra-aka-minecraft-resources.jar').absolutePath
+}
+tasks.register('structureProfileReport', JavaExec) {
+    classpath = sourceSets.validation.runtimeClasspath
+    mainClass = 'justepicdimensions.recheck.StructureProfileReport'
+    args file(providers.gradleProperty('profileRoot').get()).absolutePath
+}
+tasks.register('templateTransformContracts', JavaExec) {
+    dependsOn 'createMinecraftArtifacts'
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.TemplateTransformContracts'
+    args file('build/moddev/artifacts/neoforge-21.1.243.jar').absolutePath
+}
+tasks.register('templateFileContracts', JavaExec) {
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.TemplateFileContracts'
+}
+tasks.register('structureTransformContracts', JavaExec) {
+    dependsOn 'createMinecraftArtifacts'
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.StructureTransformContracts'
+    args file('build/moddev/artifacts/neoforge-21.1.243.jar').absolutePath
+}
+
+tasks.register('worldgenTransformContracts', JavaExec) {
+    dependsOn 'createMinecraftArtifacts'
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.WorldgenTransformContracts'
+    args file(providers.gradleProperty('worldgenNativeJar').getOrElse('build/moddev/artifacts/neoforge-21.1.243.jar')).absolutePath
+}
+tasks.register('travelTransformContracts', JavaExec) {
+    dependsOn 'createMinecraftArtifacts'
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.TravelTransformContracts'
+    args file('build/moddev/artifacts/neoforge-21.1.243.jar').absolutePath
+}
+tasks.register('datapackJsonContracts', JavaExec) {
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.DatapackJsonContracts'
+    args file('validation/servercore/bumblezone-commented.json').absolutePath
+}
+tasks.register('shutdownScopeContracts', JavaExec) {
+    classpath = sourceSets.coremodTest.runtimeClasspath
+    mainClass = 'arbitrage.coremod.ShutdownScopeContracts'
+}
+tasks.register('brightnessTransformContracts', JavaExec) {
+    dependsOn 'createMinecraftArtifacts'
+    classpath = sourceSets.coremodTest.runtimeClasspath
+    mainClass = 'arbitrage.coremod.BrightnessTransformContracts'
+    args file('build/moddev/artifacts/neoforge-21.1.243.jar').absolutePath
+}
+tasks.register('worldTransformContracts', JavaExec) {
+    dependsOn 'createMinecraftArtifacts'
+    classpath = sourceSets.coremodTest.runtimeClasspath
+    mainClass = 'arbitrage.coremod.WorldTransformContracts'
+    args file('build/moddev/artifacts/neoforge-21.1.243.jar').absolutePath
+}
+tasks.register('timeTransformContracts', JavaExec) {
+    dependsOn 'createMinecraftArtifacts'
+    classpath = sourceSets.coremodTest.runtimeClasspath
+    mainClass = 'arbitrage.coremod.TimeTransformContracts'
+    args file('build/moddev/artifacts/neoforge-21.1.243.jar').absolutePath
+}
+sourceSets.create('nativeControl')
+tasks.register('weatherTransformContracts', JavaExec) {
+    dependsOn 'createMinecraftArtifacts'
+    classpath = sourceSets.coremodTest.runtimeClasspath
+    mainClass = 'arbitrage.coremod.WeatherTransformContracts'
+    args file('build/moddev/artifacts/neoforge-21.1.243.jar').absolutePath
+}
+sourceSets.create('shutdownProbe')
+tasks.register('mobSpawnTransformContracts', JavaExec) {
+    dependsOn 'createMinecraftArtifacts'
+    classpath = sourceSets.coremodTest.runtimeClasspath
+    mainClass = 'arbitrage.coremod.MobSpawnTransformContracts'
+    args file('build/moddev/artifacts/neoforge-21.1.243.jar').absolutePath
+}
+sourceSets.create('brightnessObserver')
+tasks.register('spawnTransformContracts', JavaExec) {
+    dependsOn 'createMinecraftArtifacts'
+    classpath = sourceSets.coremodTest.runtimeClasspath
+    mainClass = 'arbitrage.coremod.SpawnTransformContracts'
+    args file('build/moddev/artifacts/neoforge-21.1.243.jar').absolutePath
+}
+tasks.register('playerStateTransformContracts', JavaExec) {
+    dependsOn 'createMinecraftArtifacts'
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.PlayerStateTransformContracts'
+    args file('build/moddev/artifacts/neoforge-21.1.243.jar').absolutePath
+    args fixtureJars('PLAYER_STATE', ['accessories_cclayer-*.jar'])
+}
+sourceSets.brightnessObserver.compileClasspath += sourceSets.main.compileClasspath
+sourceSets.shutdownProbe.compileClasspath += sourceSets.main.compileClasspath
+sourceSets.coremod.compileClasspath += sourceSets.main.compileClasspath
+sourceSets.arbitrage.compileClasspath += sourceSets.main.compileClasspath
+sourceSets.coremodTest.compileClasspath += sourceSets.coremod.output + sourceSets.coremod.compileClasspath + sourceSets.main.output
+sourceSets.coremodTest.runtimeClasspath += sourceSets.coremod.output + sourceSets.coremod.compileClasspath
+sourceSets.validation.compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+sourceSets.validation.runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+// Optional API types are never packaged into JED or added to the normal game runtime.
+dependencies {
+    compileOnly fileTree(dir: testFixture('PLAYER_STATE'), include: ['curios-*.jar','accessories-neoforge-*.jar','owo-lib-*.jar'])
+    compileOnly fileTree(dir: 'research/player-state/compile-deps', include: ['*.jar'])
+    compileOnly files(testFixture('CHUNKY'))
+    compileOnly fileTree(dir: testFixture('INVENTORY'), include: ['*.jar'])
+}
+sourceSets.nativeControl.compileClasspath += sourceSets.main.compileClasspath
+tasks.register('teamContracts', JavaExec) {
+    dependsOn 'createMinecraftArtifacts'
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.TeamContracts'
+    args file('build/moddev/artifacts/neoforge-21.1.243.jar').absolutePath
+    args fileTree(dir: testFixture('TEAMS'), include: 'open-parties-and-claims-*.jar').singleFile.absolutePath
+}
+sourceSets.nativeControl.runtimeClasspath += sourceSets.main.runtimeClasspath - sourceSets.main.output
+def scenario = providers.gradleProperty('scenario').getOrElse('headless')
+def nativeControl = providers.gradleProperty('nativeControl').getOrElse('false').toBoolean()
+def packagedJed = providers.gradleProperty('packagedJed').getOrElse('false').toBoolean()
+def packagedJarFileName = tasks.named('jar', Jar).get().archiveFileName.get()
+if (packagedJed && nativeControl) { throw new GradleException('Packaged JED and native-only control are separate test modes') }
+if (packagedJed) { sourceSets.validation.runtimeClasspath -= sourceSets.main.output }
+def shutdownProbe = providers.gradleProperty('shutdownProbe').getOrElse('false').toBoolean()
+def brightnessObserver = providers.gradleProperty('brightnessObserver').getOrElse('false').toBoolean()
+def pairControl = providers.gradleProperty('pairControl').getOrElse('false').toBoolean()
+def resultDir = file("validation/results/${providers.gradleProperty('trial').getOrElse('baseline')}/${scenario}")
+def coremodLibraryJar = tasks.register('coremodLibraryJar', Jar) {
+    archiveBaseName = 'arbitrage-transformers'
+    archiveVersion = arbitrageVersion
+    destinationDirectory = layout.buildDirectory.dir('coremod-library')
+    from sourceSets.coremod.output
+    from('LICENSE')
+    from('legal/GPL-3.0.txt') { into 'docs/legal' }
+    manifest.attributes('FMLModType': 'LIBRARY', 'Automatic-Module-Name': 'arbitrage.coremod', 'Implementation-Version': arbitrageVersion)
+}
+// Arbitrage ships only inside the JED JAR (see tasks.jar), so it is built outside build/libs: that folder holds just the
+// one JAR players install. Development runs stage this output directly (stageCoremod).
+def coremodJar = tasks.register('coremodJar', Jar) {
+    archiveBaseName = 'arbitrage'
+    archiveVersion = arbitrageVersion
+    destinationDirectory = layout.buildDirectory.dir('arbitrage')
+    from sourceSets.arbitrage.output
+    from('LICENSE')
+    from('legal/GPL-3.0.txt') { into 'docs/legal' }
+    from(coremodLibraryJar) { into 'META-INF/jarjar' }
+    manifest.attributes('FMLModType': 'MOD', 'Automatic-Module-Name': 'arbitrage', 'Implementation-Version': arbitrageVersion)
+}
+def shutdownProbeJar = tasks.register('shutdownProbeJar', Jar) {
+    archiveFileName = 'jed-shutdown-diagnostic.jar'
+    destinationDirectory = layout.buildDirectory.dir('diagnostics')
+    from sourceSets.shutdownProbe.output
+    manifest.attributes('FMLModType': 'LIBRARY', 'Automatic-Module-Name': 'jed.shutdown.diagnostic')
+}
+tasks.register('stageShutdownProbe', Copy) {
+    onlyIf { shutdownProbe }
+    dependsOn shutdownProbeJar
+    from shutdownProbeJar
+    into "validation/runs/${scenario}/${providers.gradleProperty('clientDir').getOrElse('client')}/mods"
+}
+def brightnessObserverJar = tasks.register('brightnessObserverJar', Jar) {
+    archiveFileName = 'jed-brightness-observer.jar'
+    destinationDirectory = layout.buildDirectory.dir('diagnostics')
+    from sourceSets.brightnessObserver.output
+    manifest.attributes('FMLModType': 'LIBRARY', 'Automatic-Module-Name': 'jed.brightness.observer')
+}
+tasks.register('stageBrightnessObserver', Copy) {
+    onlyIf { brightnessObserver }
+    dependsOn brightnessObserverJar
+    from brightnessObserverJar
+    into "validation/runs/${scenario}/${providers.gradleProperty('clientDir').getOrElse('client')}/mods"
+}
+// Task actions must not touch Task.project at execution time (an error from Gradle 10 and with the configuration cache):
+// resolve paths while configuring and copy through the injected file-system service.
+interface StagingFileOperations { @javax.inject.Inject FileSystemOperations getFs() }
+def stagingFiles = objects.newInstance(StagingFileOperations)
+def workspaceRoot = projectDir.canonicalFile.toPath()
+def stagingRuns = file("validation/runs/${scenario}")
+def packagedJar = tasks.named('jar')
+tasks.register('stageCoremod', Copy) {
+    onlyIf { !nativeControl }
+    dependsOn coremodJar
+    doFirst {
+        ['server',providers.gradleProperty('clientDir').getOrElse('client')].unique().each { role ->
+            def previous=new File(stagingRuns,"${role}/mods/justepicdimensions-light-coremod.jar")
+            if(previous.exists()) {
+                def retired=new File(stagingRuns,"${role}/retired-mods/justepicdimensions-light-coremod.jar")
+                if(!previous.canonicalFile.toPath().startsWith(workspaceRoot) || !retired.canonicalFile.toPath().startsWith(workspaceRoot)) throw new GradleException('Coremod retirement outside workspace')
+                retired.parentFile.mkdirs()
+                java.nio.file.Files.move(previous.toPath(),retired.toPath(),java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+            }
+        }
+    }
+    from coremodJar
+    into "validation/runs/${scenario}/${providers.gradleProperty('clientDir').getOrElse('client')}/mods"
+    doLast { stagingFiles.fs.copy { from coremodJar; into new File(stagingRuns,'server/mods') } }
+}
+tasks.register('stagePackagedJed', Copy) {
+    onlyIf { packagedJed }
+    dependsOn tasks.named('jar')
+    from tasks.named('jar')
+    into "validation/runs/${scenario}/${providers.gradleProperty('clientDir').getOrElse('client')}/mods"
+    doLast { stagingFiles.fs.copy { from packagedJar; into new File(stagingRuns,'server/mods') } }
+}
+neoForge {
+    version = '21.1.243'
+    accessTransformers.from('src/main/resources/META-INF/accesstransformer.cfg')
+    mods {
+        if (nativeControl) {
+            clear()
+            jed_native_validation { sourceSet sourceSets.nativeControl }
+        }
+        else {
+            if (!packagedJed) { justepicdimensions { sourceSet sourceSets.main } }
+            jed_light_validation { sourceSet sourceSets.validation }
+            if (pairControl) { jed_native_validation { sourceSet sourceSets.nativeControl } }
+        }
+    }
+    runs {
+        validationClient {
+            client()
+            if (packagedJed) {
+                sourceSet = sourceSets.validation
+                loadedMods.set([neoForge.mods.jed_light_validation])
+            }
+            if (nativeControl) {
+                sourceSet = sourceSets.nativeControl
+                loadedMods.set([neoForge.mods.jed_native_validation])
+            }
+            gameDirectory = file("validation/runs/${scenario}/${providers.gradleProperty('clientDir').getOrElse('client')}")
+            systemProperty 'jed.scenario', scenario
+            systemProperty 'jed.resultDir', resultDir.absolutePath
+            systemProperty 'jed.suite', providers.gradleProperty('suite').getOrElse('core')
+            systemProperty 'jed.multi', providers.gradleProperty('multi').getOrElse('false')
+            systemProperty 'jed.runtime.packaged', packagedJed.toString()
+            systemProperty 'jed.runtime.expectedJar', file("validation/runs/${scenario}/${providers.gradleProperty('clientDir').getOrElse('client')}/mods/${packagedJarFileName}").absolutePath
+            systemProperty 'jed.structure.trace', providers.gradleProperty('structureTrace').getOrElse('false')
+            systemProperty 'jed.structure.profile', providers.gradleProperty('structureProfile').getOrElse('false')
+            systemProperty 'jed.structure.delay', providers.gradleProperty('structureDelay').getOrElse('0')
+            systemProperty 'jed.spawnchunks.profile.fixtureGate', providers.gradleProperty('spawnChunksFixtureGate').getOrElse('false')
+            systemProperty 'jed.diagnostic.pair', pairControl.toString()
+            systemProperty 'jed.diagnostic.expectJed', (!nativeControl).toString()
+            systemProperty 'jed.diagnostic.cycles', providers.gradleProperty('cycles').getOrElse('1')
+            systemProperty 'jed.whole.settleTicks', providers.gradleProperty('settleTicks').getOrElse('400')
+            systemProperty 'jed.diagnostic.fix', providers.gradleProperty('probeFix').getOrElse('off')
+            systemProperty 'jed.diagnostic.stopMode', providers.gradleProperty('stopMode').getOrElse('both')
+            systemProperty 'jed.diagnostic.verifyPersistence', providers.gradleProperty('verifyPersistence').getOrElse('false')
+            jvmArgument '-Xmx3G'
+            programArguments.addAll('--username', providers.gradleProperty('clientName').getOrElse('JEDLightTest'), '--width', '960', '--height', '540')
+        }
+        validationServer {
+            server()
+            if (packagedJed) {
+                sourceSet = sourceSets.validation
+                loadedMods.set([neoForge.mods.jed_light_validation])
+            }
+            gameDirectory = file("validation/runs/${scenario}/server")
+            systemProperty 'jed.scenario', scenario
+            systemProperty 'jed.resultDir', resultDir.absolutePath
+            systemProperty 'jed.suite', providers.gradleProperty('suite').getOrElse('core')
+            systemProperty 'jed.multi', providers.gradleProperty('multi').getOrElse('false')
+            systemProperty 'jed.runtime.packaged', packagedJed.toString()
+            systemProperty 'jed.runtime.expectedJar', file("validation/runs/${scenario}/server/mods/${packagedJarFileName}").absolutePath
+            systemProperty 'jed.structure.trace', providers.gradleProperty('structureTrace').getOrElse('false')
+            systemProperty 'jed.structure.profile', providers.gradleProperty('structureProfile').getOrElse('false')
+            systemProperty 'jed.structure.delay', providers.gradleProperty('structureDelay').getOrElse('0')
+            systemProperty 'jed.spawnchunks.profile.fixtureGate', providers.gradleProperty('spawnChunksFixtureGate').getOrElse('false')
+            systemProperty 'jed.whole.settleTicks', providers.gradleProperty('settleTicks').getOrElse('400')
+            jvmArgument '-Xmx3G'
+            programArgument '--nogui'
+        }
+    }
+}
+tasks.named('prepareValidationClientRun') {
+    dependsOn 'stageCoremod', 'stageShutdownProbe', 'stageBrightnessObserver'
+    if (packagedJed) { dependsOn 'stagePackagedJed' }
+}
+tasks.named('prepareValidationServerRun') {
+    dependsOn 'stageCoremod'
+    if (packagedJed) { dependsOn 'stagePackagedJed' }
+}
+tasks.named('assemble') { dependsOn coremodJar }
+tasks.named('jar') {
+    from('LICENSE')
+    from('legal/GPL-3.0.txt') { into 'docs/legal' }
+    // Players install one file: NeoForge's Jar-in-Jar loads the nested Arbitrage mod, and its own nested transformer
+    // library, from inside this JAR before any game code. META-INF/jarjar/metadata.json declares it.
+    from(coremodJar) { into 'META-INF/jarjar'; rename { 'arbitrage.jar' } }
+    manifest.attributes('Implementation-Title': 'Just Epic Dimensions', 'Implementation-Version': project.version)
+}
+
+def modVersion = project.version.toString()
+tasks.named('processResources') {
+    inputs.property('mod_version', modVersion)
+    inputs.property('arbitrage_version', arbitrageVersion)
+    filesMatching(['META-INF/neoforge.mods.toml', 'META-INF/jarjar/metadata.json']) {
+        expand(mod_version: modVersion, arbitrage_version: arbitrageVersion)
+    }
+}
+
+tasks.named('processArbitrageResources') {
+    inputs.property('mod_version', modVersion)
+    inputs.property('arbitrage_version', arbitrageVersion)
+    filesMatching(['META-INF/neoforge.mods.toml', 'META-INF/jarjar/metadata.json']) {
+        expand(mod_version: modVersion, arbitrage_version: arbitrageVersion)
+    }
+}
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['-Xlint:deprecation', '-Xlint:removal']
+}
+
+tasks.register('humanFeedbackContracts', JavaExec) {
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.HumanFeedbackContracts'
+    dependsOn sodiumModJar
+    args file('build/moddev/artifacts/neoforge-21.1.243.jar').absolutePath
+    args sodiumModFile.get().asFile.absolutePath
+}
+
+tasks.register('runtimeBridgeContracts', JavaExec) {
+    dependsOn tasks.named('jar'), tasks.named('coremodTestClasses')
+    classpath = sourceSets.coremodTest.runtimeClasspath
+    mainClass = 'arbitrage.coremod.RuntimeBridgeContracts'
+    args tasks.named('jar', Jar).get().archiveFile.get().asFile.absolutePath
+    args file('build/moddev/artifacts/neoforge-21.1.243.jar').absolutePath
+    dependsOn sodiumModJar
+    args fixtureJars('PLAYER_STATE', ['accessories_cclayer-*.jar'])
+    args sodiumModFile.get().asFile.absolutePath
+    args testFixture('CHUNKY').absolutePath
+}
+// Diagnostic-only idle unload failure points. Never included in either distributable.
+sourceSets.create('idleAudit')
+sourceSets.idleAudit.compileClasspath += sourceSets.main.compileClasspath
+tasks.register('idleAuditJar', Jar) {
+    archiveFileName = 'jed-idle-audit.jar'
+    destinationDirectory = layout.buildDirectory.dir('diagnostics')
+    from sourceSets.idleAudit.output
+    manifest.attributes('FMLModType': 'LIBRARY', 'Automatic-Module-Name': 'jed.idle.audit')
+}
+
+// Approved recurring lifecycle calendar semantics; no native server is needed for these vectors.
+tasks.register('lifecycleScheduleContracts', JavaExec) {
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.LifecycleScheduleContracts'
+}
+
+
+tasks.register('profileBundleContracts', JavaExec) {
+    dependsOn tasks.named('coremodTestClasses')
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.ProfileBundleContracts'
+}
+
+tasks.register('pregenerationContracts', JavaExec) {
+    dependsOn tasks.named('coremodTestClasses')
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.PregenerationContracts'
+}
+
+// Detached instance policy, ownership ledger and derived settings contracts.
+tasks.register('instanceContracts', JavaExec) {
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.InstanceContracts'
+}
+
+tasks.register('monitoringContracts', JavaExec) {
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.MonitoringContracts'
+}
+
+// Package the exact authored tour; it remains dormant until useShowcase is enabled.
+def showcaseArchive = tasks.register('showcaseArchive', Zip) {
+    from('examples/showcase/config/justepicdimensions') { include 'data/**' }
+    archiveFileName = 'showcase.zip'
+    destinationDirectory = layout.buildDirectory.dir('generated/showcase')
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+    // Git does not track empty folders, so a local one must not change the archive a clean clone builds.
+    includeEmptyDirs = false
+}
+tasks.named('processResources') {
+    from(showcaseArchive) { into 'justepicdimensions/showcase' }
+    from('examples/showcase/guide-book-content.json') { into 'assets/justepicdimensions'; rename { 'guide_book.json' } }
+}
+tasks.register('showcaseInstallerContracts', JavaExec) {
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.ShowcaseInstallerContracts'
+}
+
+// Links are rejected inside managed trees but allowed in operator-chosen roots and their ancestors.
+tasks.register('pathSafetyContracts', JavaExec) {
+    classpath = sourceSets.coremodTest.runtimeClasspath + sourceSets.main.output
+    mainClass = 'arbitrage.coremod.PathSafetyContracts'
+}

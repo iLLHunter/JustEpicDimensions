@@ -1,0 +1,158 @@
+{
+  "format_version": 1,
+  "display_name": "Prismatic Meadow",
+  "provider": {
+    "type": "justepicdimensions:surface"
+  },
+  "lifecycle": {
+    "load_on_start": false,
+    "keep_loaded": false,
+    "automatic_unload": true,
+    "idle_seconds": 90
+  },
+  "state": {
+    "initial": {
+      "day_time": 4000,
+      "default_game_mode": "survival",
+      "difficulty": "peaceful",
+      "hardcore": false,
+      "gamerules": {
+        "spawnChunkRadius": 0,
+        "doMobSpawning": false,
+        "keepInventory": true,
+        "doWeatherCycle": false
+      },
+      "weather": {
+        "raining": false,
+        "thundering": false,
+        "clear_time": 2400000
+      }
+    }
+  },
+  "spawn": {
+    "mode": "surface",
+    "min_y": 48,
+    "max_y": 220,
+    "fallback_block": true,
+    "reset_velocity": true,
+    "reset_fall_distance": true
+  },
+  "player": {
+    "inventory_group": "__default",
+    "force_game_mode": false
+  },
+  "generation": {
+    "seed": "JED showcase prismatic meadow",
+    "structures": true,
+    "structure_sets": [
+      "justepicdimensions:showcase_meadow_pavilion",
+      "justepicdimensions:showcase_cherry_pavilion"
+    ]
+  },
+  "time": {
+    "day_length": 12000,
+    "night_length": 12000,
+    "celestial": "range",
+    "angle_range": {
+      "min": 0.02,
+      "max": 0.2
+    },
+    "clock_range": {
+      "min": 4000,
+      "max": 10000,
+      "calendar_days_per_repeat": 0
+    }
+  },
+  "mobs": {
+    "hostile": false,
+    "peaceful": true
+  },
+  "render": {
+    "sky": {
+      "mode": "overworld",
+      "color": "#65D6DD",
+      "fixed": true,
+      "biome_blend": 1,
+      "sunrise": false,
+      "sun": {
+        "scale": 1.8,
+        "color": "#FFD59A"
+      },
+      "moon": {
+        "scale": 0.7
+      },
+      "stars": false
+    },
+    "clouds": {
+      "color": "#FFC4E2",
+      "fixed": true,
+      "height": 144
+    },
+    "fog": {
+      "color": "#C7B8E8",
+      "fixed": true,
+      "near": 24,
+      "far": 160
+    },
+    "biome_colors": {
+      "grass": [
+        {
+          "biome": "minecraft:flower_forest",
+          "color": "#79DEB4"
+        },
+        {
+          "biome": "minecraft:meadow",
+          "color": "#79DEB4"
+        },
+        {
+          "biome": "minecraft:cherry_grove",
+          "color": "#79DEB4"
+        }
+      ],
+      "foliage": [
+        {
+          "biome": "minecraft:flower_forest",
+          "color": "#39BCA0"
+        },
+        {
+          "biome": "minecraft:meadow",
+          "color": "#39BCA0"
+        },
+        {
+          "biome": "minecraft:cherry_grove",
+          "color": "#39BCA0"
+        }
+      ],
+      "water": [
+        {
+          "biome": "minecraft:flower_forest",
+          "color": "#B493F0"
+        },
+        {
+          "biome": "minecraft:meadow",
+          "color": "#B493F0"
+        },
+        {
+          "biome": "minecraft:cherry_grove",
+          "color": "#B493F0"
+        }
+      ]
+    },
+    "music": {
+      "mode": "preset",
+      "preset": "creative"
+    }
+  },
+  "travel": {
+    "check_interval": 10,
+    "cooldown": 40,
+    "passengers": "together",
+    "sky": {
+      "dimension": "justepicdimensions:showcase_hub",
+      "trigger_y": 224,
+      "mode": "spawn",
+      "remove_fall_damage": true,
+      "velocity": "reset"
+    }
+  }
+}

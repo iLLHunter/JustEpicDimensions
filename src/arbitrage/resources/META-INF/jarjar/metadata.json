@@ -1,0 +1,1 @@
+{"jars":[{"identifier":{"group":"arbitrage","artifact":"arbitrage-transformers"},"version":{"range":"[${arbitrage_version}]","artifactVersion":"${arbitrage_version}"},"path":"META-INF/jarjar/arbitrage-transformers-${arbitrage_version}.jar","isObfuscated":false}]}

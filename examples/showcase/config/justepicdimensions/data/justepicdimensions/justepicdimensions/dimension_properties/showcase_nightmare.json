@@ -1,0 +1,111 @@
+{
+  "format_version": 1,
+  "display_name": "Crimson Nightmare",
+  "provider": {
+    "type": "justepicdimensions:surface"
+  },
+  "lifecycle": {
+    "load_on_start": false,
+    "keep_loaded": false,
+    "automatic_unload": true,
+    "idle_seconds": 90
+  },
+  "state": {
+    "initial": {
+      "day_time": 11000,
+      "default_game_mode": "survival",
+      "difficulty": "peaceful",
+      "hardcore": false,
+      "gamerules": {
+        "spawnChunkRadius": 0,
+        "doMobSpawning": false,
+        "keepInventory": true,
+        "doWeatherCycle": false,
+        "doDaylightCycle": false
+      },
+      "weather": {
+        "raining": false,
+        "thundering": false,
+        "clear_time": 2400000
+      },
+      "day_time_per_tick": 0
+    }
+  },
+  "spawn": {
+    "mode": "surface",
+    "min_y": 48,
+    "max_y": 220,
+    "fallback_block": true,
+    "reset_velocity": true,
+    "reset_fall_distance": true
+  },
+  "player": {
+    "inventory_group": "__default",
+    "force_game_mode": false
+  },
+  "generation": {
+    "seed": 136574810,
+    "structures": false
+  },
+  "mobs": {
+    "hostile": false,
+    "peaceful": false
+  },
+  "render": {
+    "sky": {
+      "mode": "overworld",
+      "color": "#20002F",
+      "fixed": true,
+      "biome_blend": 1,
+      "sunrise": false,
+      "sun": {
+        "scale": 4,
+        "color": "#FF3000"
+      },
+      "moon": {
+        "visible": false
+      },
+      "stars": false
+    },
+    "clouds": {
+      "visible": true,
+      "color": "#A8FF00",
+      "fixed": true,
+      "height": 96
+    },
+    "fog": {
+      "color": "#008000",
+      "fixed": true,
+      "near": 4,
+      "far": 160,
+      "shape": "cylinder"
+    },
+    "biome_colors": {
+      "grass": [
+        {
+          "tag": "minecraft:is_overworld",
+          "color": "#FF1028"
+        }
+      ],
+      "foliage": [
+        {
+          "tag": "minecraft:is_overworld",
+          "color": "#000000"
+        }
+      ],
+      "water": [
+        {
+          "tag": "minecraft:is_overworld",
+          "color": "#4913A6"
+        }
+      ]
+    },
+    "music": {
+      "mode": "preset",
+      "preset": "nether",
+      "min_delay": 20,
+      "max_delay": 60,
+      "replace": true
+    }
+  }
+}

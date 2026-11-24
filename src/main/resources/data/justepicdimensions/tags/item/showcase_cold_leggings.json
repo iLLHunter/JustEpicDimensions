@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:leather_leggings",
+    "minecraft:chainmail_leggings",
+    "minecraft:golden_leggings",
+    "minecraft:iron_leggings",
+    "minecraft:diamond_leggings",
+    "minecraft:netherite_leggings",
+    {
+      "id": "mpsremodularized:primitive_power_armor_leggings",
+      "required": false
+    },
+    {
+      "id": "mpsremodularized:prototype_power_armor_leggings",
+      "required": false
+    },
+    {
+      "id": "mpsremodularized:prototype_power_armor_leggings_mkii",
+      "required": false
+    },
+    {
+      "id": "mpsremodularized:power_armor_leggings",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+# Generated builds, Gradle caches and disposable Minecraft runs.
+.gradle/
+build/
+run/
+runs/
+logs/
+__pycache__/
+*.py[cod]
+*.class
+
+# Installed/downloaded runtimes and generated Java archives.
+/validation/distribution/installed-client/
+/validation/distribution/installed-server/
+*.jar
+!**/gradle/wrapper/gradle-wrapper.jar
+
+# Raw logs and profiling captures; keep durable reports and screenshots.
+*.log
+*.log.*
+*.jfr
+*.hprof
+*.heapdump
+jfr-events.json
+spawn-startup-trace.json
+spawn-profile-phases.json
+*trace*.jsonl
+/validation/results/**/clipboard-guard-*/
+/validation/results/**/repository/
+/validation/results/**/definition-journal-world/
+/validation/results/**/files-world/
+/validation/results/**/world/
+/validation/results/**/saves/
+/validation/results/**/old-generation/
+/validation/results/**/*.mca
+/validation/results/**/*.mcc
+/validation/results/**/*.dat
+/validation/results/**/*.dat_old
+/validation/results/**/session.lock
+
+# Local environment files and operating-system metadata.
+.env
+.env.*
+!.env.example
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Clean-break development repository: retained locally, excluded from publication.
+# Artwork is tracked here but export-ignored (.gitattributes), so it stays out of the public repository.
+/JED 1.7.0/
+/wiki/
+/prototype/
+/outputs/
+*.zip
+
+# owo-lib's compile-only Jar-in-Jar libraries; every third-party test mod lives in mc-testkit's fixture store.
+!/research/player-state/compile-deps/*.jar
+
+# Generated validation captures and process diagnostics; retain source and summaries.
+/validation/**/*.png
+/validation/**/*.jpg
+/validation/**/*.jpeg
+/validation/**/*.gif
+/validation/**/*.webp
+/validation/*-window*.json
+/validation/*-process*.json
+/validation/*-thread-dump*.txt
+/validation/**/*-threads.txt
+
+# Keep only the selected compact 2.0 acceptance records under results/.
+/validation/results/**
+!/validation/results/rename-2-0-package-audit.json
+!/validation/results/rename-2-0-source-preservation.json
+!/validation/results/photo-config-package.json
+!/validation/results/photo-config-package-v2.json
+!/validation/results/rename-2-0-smoke-02/
+!/validation/results/rename-2-0-smoke-02/*/
+!/validation/results/rename-2-0-lifecycle-01/
+!/validation/results/rename-2-0-lifecycle-01/*/
+!/validation/results/rename-2-0-lifecycle-01-reopen/
+!/validation/results/rename-2-0-lifecycle-01-reopen/*/
+!/validation/results/rename-2-0-player-01/
+!/validation/results/rename-2-0-player-01/*/
+!/validation/results/rename-2-0-player-01-reopen/
+!/validation/results/rename-2-0-player-01-reopen/*/
+!/validation/results/photo-config-global-03/
+!/validation/results/photo-config-global-03/*/
+!/validation/results/photo-config-world-03/
+!/validation/results/photo-config-world-03/*/
+!/validation/results/photo-v2-global-01/
+!/validation/results/photo-v2-global-01/*/
+!/validation/results/photo-v2-world-01/
+!/validation/results/photo-v2-world-01/*/
+!/validation/results/photo-v2-visual-02/
+!/validation/results/photo-v2-visual-02/*/
+!/validation/results/*/*/result.json
+!/validation/results/*/*/installed-acceptance.json
+!/validation/results/*/*/installed-smoke.json
+!/validation/results/*/*/installed-process-closure.json
+!/validation/results/*/*/photo-config-acceptance.json
+!/validation/results/*/*/photo-visual-acceptance.json
+!/validation/results/*/*/photo-visual.json
