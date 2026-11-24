@@ -9,6 +9,10 @@ A NeoForge mod that adds custom dimensions to Minecraft. You describe each dimen
 
 Paste [AI_DIMENSION_GUIDE.md](AI_DIMENSION_GUIDE.md) into a chat with an AI assistant and describe the world you want. It asks you a few questions and writes the files for you.
 
+## For mod developers
+
+[API.md](API.md) covers the hooks other mods can use: dimension names, travel checks, lifecycle notifications, custom world providers, sky/cloud/weather renderers and equipment effects.
+
 ## License
 
 Licensed under **LGPL-3.0-only**. Based on [masa's Just Enough Dimensions](https://github.com/maruohon/justenoughdimensions). The complete license texts are in [LICENSE](LICENSE) (LGPLv3) and [legal/GPL-3.0.txt](legal/GPL-3.0.txt) (the GPLv3 terms it incorporates).
